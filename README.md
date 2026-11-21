@@ -1,33 +1,101 @@
-# Miguel Greco — portfólio audiovisual
+# Miguel Greco — Audiovisual Portfolio
 
-Site em React e Vite com mídia real do portfólio original. Inclui seleção de filmes, filtros, acervo completo de 13 projetos, páginas de filme e contato via WhatsApp.
+A cinematic portfolio for filmmaker and editor Miguel Greco, built with React and Vite. Real films, editorial typography, an asymmetric project gallery, and direct WhatsApp contact bring the work to the foreground.
 
-## Executar
+The website content is in Brazilian Portuguese. This README documents the project in English.
 
-```sh
+## Screenshots
+
+### Desktop
+
+**Opening film**
+
+![Desktop homepage with the opening film](docs/screenshots/desktop-home.jpg)
+
+**About Miguel**
+
+The biography pairs a playable Polaroid with a dotted journey through Miguel's work and travel references.
+
+![About section with the Polaroid video and illustrated journey](docs/screenshots/desktop-about.jpg)
+
+### Mobile
+
+<p>
+  <img src="docs/screenshots/mobile-home.jpg" alt="Mobile homepage with direct WhatsApp access" width="280" />
+  <img src="docs/screenshots/mobile-projects.jpg" alt="Mobile project gallery and floating WhatsApp shortcut" width="280" />
+</p>
+
+Screenshots show actual browser renders. The opening video's frame changes during playback.
+
+## Features
+
+- Muted opening video with play and pause controls and reduced-motion support.
+- A curated project selection and a complete archive of 13 projects.
+- Category filters for brands and content, weddings, events, and personal work.
+- Individual film pages with participation credits, Google Drive playback, and original-file links.
+- A personal video presented as a Polaroid, with an airplane-photo preview. Playback and sound start after the visitor presses play.
+- A responsive dotted journey connecting the biography heading to the Polaroid, with travel and audiovisual symbols.
+- WhatsApp links in the mobile header, navigation, contact section, and floating shortcut.
+- An optional briefing form that prepares a WhatsApp message for the visitor to review and send.
+- Responsive layouts, keyboard focus states, and self-hosted Manrope fonts.
+
+## Tech Stack
+
+- React 19
+- Vite 7
+- CSS with responsive layouts and SVG graphics
+- Static hosting; no application server is required
+
+## Getting Started
+
+Use Node.js **22.12 or later** and npm.
+
+~~~sh
 npm ci
 npm run dev
-```
+~~~
 
-## Gerar o site
+Open the local URL printed by Vite.
 
-```sh
+## Production Build
+
+~~~sh
 npm run build
-```
+~~~
 
-O resultado está em `dist/`. Hospedagem estática, sem credenciais no cliente e sem servidor de aplicação.
+The generated website is written to `dist/`.
 
-## Atualizar projetos
+To preview the production build locally:
 
-Os filmes e créditos ficam em `src/projects.js`. As capas e o vídeo de abertura ficam em `public/assets/`. Cada filme usa um endereço individual no formato `#filme/nome-do-projeto`. A seleção inicial é definida no componente `Portfolio` de `src/main.jsx`.
+~~~sh
+npm run preview
+~~~
 
-O formulário monta uma mensagem e oferece um link para o WhatsApp; o visitante revisa e envia por lá. O site não armazena nem envia os dados do formulário a um servidor próprio.
+## Deploy to Netlify
 
-## Conteúdo e limites desta versão
+Import this GitHub repository into Netlify and use:
 
-- Fontes das mídias registradas em `ASSET-SOURCES.json` e nos metadados de cada imagem.
-- Créditos preservados a partir do portfólio público original; nomes de alguns projetos identificados pelas capas.
-- Filmes completos incorporados pelo Google Drive, com acesso ao arquivo original caso o player não carregue.
-- A primeira versão não inclui painel CMS, formulário de e-mail nem novas alegações de clientes, prêmios ou resultados.
-- O trabalho da Coca-Cola mencionado pelo usuário ainda precisa ser identificado para inclusão com os créditos corretos.
-- A fonte Manrope é distribuída com sua licença OFL em `public/assets/Manrope-OFL.txt`.
+- **Production branch:** `main`
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
+
+For a manual deployment, run the production build and upload the `dist/` folder to Netlify Drop.
+
+## Updating the Portfolio
+
+- **Projects and credits:** edit [`src/projects.js`](src/projects.js).
+- **Page copy, the initial selection, and components:** edit [`src/main.jsx`](src/main.jsx).
+- **Layout and appearance:** edit [`src/styles.css`](src/styles.css).
+- **Cover images, videos, and fonts:** place assets in [`public/assets/`](public/assets/).
+
+Film URLs use hash navigation, such as `#filme/bruno-e-ana`.
+
+Portfolio updates are maintained in the source code; a publishing CMS is not included. The briefing form prepares a WhatsApp link and does not submit messages or store visitor details on an application server.
+
+## Media and Design References
+
+Media sources are recorded in [`ASSET-SOURCES.json`](ASSET-SOURCES.json). Existing film credits and source links come from [Miguel's original portfolio](https://lemu.re/p/Miguel.Greco.Visual/).
+
+The design system is documented in [`DESIGN.md`](DESIGN.md), and product context is recorded in [`PRODUCT.md`](PRODUCT.md).
+
+Manrope is bundled with its [SIL Open Font License](public/assets/Manrope-OFL.txt). The WhatsApp brand glyph comes from [Simple Icons](https://simpleicons.org/).
