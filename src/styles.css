@@ -48,7 +48,9 @@
  .about .signature{margin-top:24px}
 }
 
-.polaroid-media{position:relative;background:var(--ink)}
+.polaroid-media{position:relative;background:var(--ink);overflow:hidden;isolation:isolate}
+.polaroid-media::after{content:"";position:absolute;inset:0;border:1px solid var(--rule);pointer-events:none;z-index:2}
+.polaroid-media video{outline:1px solid transparent;backface-visibility:hidden;transform:translateZ(0)}
 .personal-video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;color:var(--ink);background:var(--paper);box-shadow:0 4px 16px #17191730}
 .personal-video-play svg{width:25px;height:25px}
 .personal-video-play:hover{background:var(--accent)}
