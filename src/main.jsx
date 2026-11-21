@@ -129,20 +129,62 @@ function TrailIcon({ type }) {
     film: <><rect x="3" y="2" width="18" height="20" rx="1" /><path d="M7 2v20M17 2v20M3 7h4M3 12h4M3 17h4M17 7h4M17 12h4M17 17h4m-7-10-4 3 4 3V7Z" /></>,
     motion: <><path d="M3 6h6M1 12h6M3 18h6M13 4l9 8-9 8V4Z" /></>,
     boat: <><path d="M12 2v15M12 3 3 14h9m3-8 6 8h-6M2 18h20l-4 4H6l-4-4Z" /></>,
+    suitcase: <><rect x="4" y="6" width="16" height="15" rx="2" /><path d="M9 6V3h6v3M8 6v15M16 6v15M8 23v-2m8 2v-2" /></>,
+    palms: <><path d="M12 22c2-5 3-10 2-16M14 6C10 1 5 2 3 6c5-1 8-1 11 0Zm0 0c3-5 7-4 9 0-4-1-6-1-9 0Zm0 0c-5-2-8 1-8 5 3-3 5-4 8-5Zm0 0c4 0 7 3 6 7-2-4-4-5-6-7ZM5 22c4-2 9-2 14 0" /></>,
     sun: <><circle cx="12" cy="12" r="4" /><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></>
   };
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">{glyphs[type]}</svg>;
+  return <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">{glyphs[type]}</svg>;
 }
 
 function JourneyTrail() {
-  const stops = [['plane',5,22],['car',21,14],['camera',37,32],['laptop',55,20],['rings',73,30],['clapper',92,18],['microphone',90,66],['course',72,80],['film',55,65],['motion',37,83],['boat',20,65],['sun',5,85]];
-  return <div className="about-trail" aria-hidden="true"><svg className="trail-route" viewBox="0 0 1000 330" preserveAspectRatio="none"><path d="M50 74C110 10 165 7 210 46S300 190 370 106S485 20 550 66S655 150 730 100S850 0 920 60C1020 100 1000 190 900 218S790 315 720 264S625 170 550 215S440 320 370 274S275 180 200 215S80 320 50 280" /></svg>{stops.map(([type,x,y])=><span className={`trail-stop trail-${type}`} key={type} style={{left:`${x}%`,top:`${y}%`}}><TrailIcon type={type} /></span>)}</div>;
+  const ref = useRef(null);
+  const [geometry, setGeometry] = useState(null);
+  useEffect(() => {
+    const section = ref.current?.closest('.about');
+    if (!section) return;
+    const measure = () => {
+      const bounds = section.getBoundingClientRect();
+      const relative = selector => { const r=section.querySelector(selector).getBoundingClientRect(); return {x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height,right:r.right-bounds.left,bottom:r.bottom-bounds.top}; };
+      const listen=relative('.about-listen'), photo=relative('.about-personal-film'), body=relative('.about-body');
+      const width=bounds.width,height=bounds.height,mobile=width<=700;
+      const sx=listen.right-12,sy=listen.bottom+18;
+      let d;
+      if (mobile) {
+        const y=body.bottom;
+        d=`M${sx} ${sy} C${width-5} ${sy+12} ${width-12} ${photo.y-20} ${width-12} ${photo.y+60} C${width-10} ${photo.bottom+20} ${width-12} ${body.y+40} ${width-12} ${y+25} C${width-16} ${y+85} 40 ${y+45} 38 ${y+128} C30 ${y+225} ${width-44} ${y+225} ${width-40} ${y+135} C${width-28} ${y+40} 13 ${y+42} 13 ${y-70} L13 ${photo.bottom+10} Q13 ${photo.bottom-30} ${photo.x-2} ${photo.bottom-70}`;
+      } else {
+        const gap=(photo.right+body.x)/2,right=width-45,bottom=height-100;
+        d=`M${sx} ${sy} C${sx+95} ${sy+15} ${gap+100} ${sy+65} ${gap} ${sy+145} C${gap-150} ${sy+290} ${body.x+20} ${body.bottom+135} ${right-70} ${body.bottom+85} C${right+20} ${body.bottom+25} ${right+20} ${bottom-70} ${right-55} ${bottom-20} C${right-280} ${bottom+75} ${gap+65} ${bottom+25} ${gap} ${bottom-65} C${gap-85} ${bottom-190} ${photo.right+60} ${photo.bottom-30} ${photo.right+15} ${photo.bottom-100}`;
+      }
+      const exclusions=['.about-heading h2','.signature','.about-personal-film','.about-body'].map(selector=>relative(selector));
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);
+      const length=path.getTotalLength(),points=[];
+      const types=['plane','suitcase','car','camera','rings','clapper','microphone','course','film','laptop','motion','boat','palms','sun'];
+      const radius=width<=1000?14:22;
+      const available=p=>p.x>=radius && p.x<=width-radius && p.y>=radius && p.y<=height-radius && !exclusions.some(r=>p.x>r.x-radius-7&&p.x<r.right+radius+7&&p.y>r.y-radius-7&&p.y<r.bottom+radius+7) && !points.some(q=>Math.hypot(q.x-p.x,q.y-p.y)<radius*2+12);
+      types.forEach((type,i)=>{
+        const target=(i+.35)/types.length;
+        let best=null,score=Infinity;
+        for(let step=0;step<=400;step++){const t=step/400,p=path.getPointAtLength(t*length);if(available(p)&&Math.abs(t-target)<score){best={type,x:p.x,y:p.y};score=Math.abs(t-target);}}
+        if(best) points.push(best);
+      });
+      setGeometry({width,height,d,exclusions,points,mobile});
+    };
+    measure();
+    const observer=new ResizeObserver(measure);observer.observe(section);observer.observe(section.querySelector('.about-body'));
+    let alive=true;document.fonts.ready.then(()=>{if(alive)measure();});
+    return ()=>{alive=false;observer.disconnect();};
+  }, []);
+  return <div ref={ref} className="about-trail" aria-hidden="true">{geometry && <svg className="trail-route" viewBox={`0 0 ${geometry.width} ${geometry.height}`}>
+    <defs><mask id="journey-content-mask" maskUnits="userSpaceOnUse"><rect width={geometry.width} height={geometry.height} fill="white" />{geometry.exclusions.map((r,i)=><rect key={i} x={r.x-8} y={r.y-8} width={r.w+16} height={r.h+16} fill="black" />)}</mask></defs>
+    <g mask="url(#journey-content-mask)"><path className="journey-line" d={geometry.d} />{geometry.points.map(p=><g className={`journey-symbol journey-${p.type}`} key={p.type} transform={`translate(${p.x} ${p.y})`}><circle r={geometry.width<=1000?17:23} fill="var(--paper)" /><svg x={geometry.width<=1000?-12:-15} y={geometry.width<=1000?-12:-15} width={geometry.width<=1000?24:30} height={geometry.width<=1000?24:30} viewBox="0 0 30 30"><TrailIcon type={p.type} /></svg></g>)}</g>
+  </svg>}</div>;
 }
 
 function About() {
   const personalVideoRef = useRef(null);
   const [personalVideoStarted, setPersonalVideoStarted] = useState(false);
-  return <section className="about section-pad" id="sobre" aria-labelledby="about-title"><div className="about-heading"><h2 id="about-title">Por trás da câmera,<br />alguém que <em>escuta.</em></h2><span className="signature">Miguel Greco</span><figure className="about-personal-film"><div className="polaroid-media"><video ref={personalVideoRef} poster="/assets/personal-video-poster.jpg" controls={personalVideoStarted} onPlay={() => setPersonalVideoStarted(true)} playsInline preload="metadata" width="576" height="1024" aria-label="Registros pessoais de Miguel Greco" src="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4"><p>Seu navegador não reproduziu o vídeo. <a href="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4">Abrir o vídeo pessoal de Miguel</a>.</p></video>{!personalVideoStarted && <button className="personal-video-play" type="button" aria-label="Reproduzir vídeo pessoal de Miguel" onClick={() => personalVideoRef.current?.play().catch(() => {})}><Icon name="play" /></button>}</div><figcaption>Além da ilha de edição.</figcaption></figure></div><div className="about-body"><p className="about-lead">Sou filmmaker e editor. Encontro na imagem uma forma de contar histórias — e na música, o ritmo para dar vida a elas.</p><p>Há mais de três anos no audiovisual, trabalho com captação e pós-produção em projetos para marcas, eventos e casamentos. A experiência na agência Retriz faz parte desse percurso, construído com diferentes equipes, lugares e maneiras de criar.</p><p>Da câmera à montagem, procuro o detalhe que dá sentido ao conjunto. Fora da edição, o violão, as viagens e a natureza continuam alimentando esse olhar.</p><div className="disciplines"><span>Captação</span><span>Edição & montagem</span><span>Sound design</span><span>Motion graphics</span></div><a className="text-link" href="#contato">Vamos criar a próxima história</a><JourneyTrail /></div></section>;
+  return <section className="about section-pad" id="sobre" aria-labelledby="about-title"><JourneyTrail /><div className="about-heading"><h2 id="about-title">Por trás da câmera,<br />alguém que <em className="about-listen">escuta.</em></h2><span className="signature">Miguel Greco</span><figure className="about-personal-film"><div className="polaroid-media"><video ref={personalVideoRef} poster="/assets/personal-video-poster.jpg" controls={personalVideoStarted} onPlay={() => setPersonalVideoStarted(true)} playsInline preload="metadata" width="576" height="1024" aria-label="Registros pessoais de Miguel Greco" src="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4"><p>Seu navegador não reproduziu o vídeo. <a href="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4">Abrir o vídeo pessoal de Miguel</a>.</p></video>{!personalVideoStarted && <button className="personal-video-play" type="button" aria-label="Reproduzir vídeo pessoal de Miguel" onClick={() => personalVideoRef.current?.play().catch(() => {})}><Icon name="play" /></button>}</div><figcaption>Além da ilha de edição.</figcaption></figure></div><div className="about-body"><p className="about-lead">Sou filmmaker e editor. Encontro na imagem uma forma de contar histórias — e na música, o ritmo para dar vida a elas.</p><p>Há mais de três anos no audiovisual, trabalho com captação e pós-produção em projetos para marcas, eventos e casamentos. A experiência na agência Retriz faz parte desse percurso, construído com diferentes equipes, lugares e maneiras de criar.</p><p>Da câmera à montagem, procuro o detalhe que dá sentido ao conjunto. Fora da edição, o violão, as viagens e a natureza continuam alimentando esse olhar.</p><div className="disciplines"><span>Captação</span><span>Edição & montagem</span><span>Sound design</span><span>Motion graphics</span></div><a className="text-link" href="#contato">Vamos criar a próxima história</a></div></section>;
 }
 
 function Contact() {
