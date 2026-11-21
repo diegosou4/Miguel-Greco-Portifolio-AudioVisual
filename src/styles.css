@@ -40,10 +40,16 @@
 }
 
 .about .signature{margin-top:32px}
-.about-personal-film{width:min(100%,280px);margin:28px 0 0}
-.about-personal-film video{width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:var(--ink)}
-.about-personal-film figcaption{font-size:13px;line-height:1.5;color:var(--muted);margin-top:12px}
+.about-personal-film{width:min(100%,308px);margin:36px 0 8px;padding:14px 14px 20px;background:#fff;box-shadow:0 12px 30px #17191724;transform:rotate(-2deg)}
+.about-personal-film video{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;background:var(--ink)}
+.about-personal-film figcaption{font-size:13px;line-height:1.5;color:var(--muted);margin-top:18px;text-align:center}
 @media(max-width:700px){
- .about-personal-film{width:min(100%,260px);margin:28px auto 0}
+ .about-personal-film{width:min(calc(100% - 12px),288px);margin:30px auto 8px}
  .about .signature{margin-top:24px}
 }
+
+.polaroid-media{position:relative;background:var(--ink)}
+.personal-video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;color:var(--ink);background:var(--paper);box-shadow:0 4px 16px #17191730}
+.personal-video-play svg{width:25px;height:25px}
+.personal-video-play:hover{background:var(--accent)}
+.about-personal-film:focus-within{transform:none}

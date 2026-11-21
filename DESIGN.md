@@ -192,7 +192,9 @@ The shortcut appears when the opening film has at most 15% intersection with the
 
 ### Personal Film
 
-A single unboxed portrait video extends the editorial media language into the biography, beneath Miguel’s name. The figure is capped at 280px wide (260px and centered below 700px), with a 28px top margin. Its square-cornered 9:16 frame uses containment over charcoal. The native player has controls, inline playback and metadata-only preload; it opens muted and does not autoplay. Visitors may enable sound through the player. The caption “Além da ilha de edição.” uses muted Manrope at 13px, line height 1.5 and a 12px top gap. This secondary caption does not establish a primary-label size.
+A portrait video beneath Miguel’s name uses a small Polaroid treatment: a white paper frame (`#fff`), square corners, padding of 14px with a 20px bottom edge, a local shadow (`0 12px 30px #17191724`) and a -2deg rotation. This is a deliberate personal-media exception to the otherwise flat, unboxed film system. Its width is capped at 308px, with margin `36px 0 8px`; below 700px it is centered with width `min(calc(100% - 12px), 288px)` and margin `30px auto 8px`. Keyboard focus within straightens the figure.
+
+The 9:16 native video uses cover fitting over charcoal. The travel photograph supplies the initial poster, avoiding a blank opening frame; the vertical source shares the frame’s aspect ratio. A centered 64px paper-colored play button with charcoal icon and a local shadow (`0 4px 16px #17191730`) starts playback; hover introduces chartreuse. After playback starts, native controls replace the overlay. The player uses inline playback and metadata-only preload. It does not autoplay, so the site opens silently; explicit playback retains audio and native volume control. The centered caption “Além da ilha de edição.” uses muted Manrope at 13px, line height 1.5 and an 18px top gap. This secondary caption does not establish a primary-label size.
 
 ### Film Controls
 
