@@ -1,106 +1,120 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-21T14:00:37.442736+00:00",
+  "generatedAt": "2026-11-21T16:38:03.663130+00:00",
   "title": "Design System: Miguel Greco",
   "extensions": {
     "colorMeta": {
       "accent": {
         "role": "primary",
-        "displayName": "Chartreuse",
+        "displayName": "Light Lavender",
         "tonalRamp": [
-          "oklch(15% 0.17 118)",
-          "oklch(26% 0.17 118)",
-          "oklch(38% 0.17 118)",
-          "oklch(49% 0.17 118)",
-          "oklch(61% 0.17 118)",
-          "oklch(72% 0.17 118)",
-          "oklch(84% 0.17 118)",
-          "oklch(95% 0.17 118)"
+          "oklch(15% .02 300)",
+          "oklch(26% .08 300)",
+          "oklch(38% .08 300)",
+          "oklch(49% .08 300)",
+          "oklch(61% .08 300)",
+          "oklch(72% .08 300)",
+          "oklch(84% .08 300)",
+          "oklch(95% .02 300)"
         ]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Charcoal",
+        "displayName": "Off-white Foreground",
         "tonalRamp": [
-          "oklch(15% 0.005 145)",
-          "oklch(26% 0.005 145)",
-          "oklch(38% 0.005 145)",
-          "oklch(49% 0.005 145)",
-          "oklch(61% 0.005 145)",
-          "oklch(72% 0.005 145)",
-          "oklch(84% 0.005 145)",
-          "oklch(95% 0.005 145)"
+          "oklch(15% 0 300)",
+          "oklch(26% 0 300)",
+          "oklch(38% 0 300)",
+          "oklch(49% 0 300)",
+          "oklch(61% 0 300)",
+          "oklch(72% 0 300)",
+          "oklch(84% 0 300)",
+          "oklch(95% 0 300)"
         ]
       },
       "paper": {
         "role": "neutral",
-        "displayName": "Warm Paper",
+        "displayName": "Screening Room",
         "tonalRamp": [
-          "oklch(15% 0.006 95)",
-          "oklch(26% 0.006 95)",
-          "oklch(38% 0.006 95)",
-          "oklch(49% 0.006 95)",
-          "oklch(61% 0.006 95)",
-          "oklch(72% 0.006 95)",
-          "oklch(84% 0.006 95)",
-          "oklch(95% 0.006 95)"
+          "oklch(15% 0 300)",
+          "oklch(26% 0 300)",
+          "oklch(38% 0 300)",
+          "oklch(49% 0 300)",
+          "oklch(61% 0 300)",
+          "oklch(72% 0 300)",
+          "oklch(84% 0 300)",
+          "oklch(95% 0 300)"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Near Black",
+        "tonalRamp": [
+          "oklch(15% 0 300)",
+          "oklch(26% 0 300)",
+          "oklch(38% 0 300)",
+          "oklch(49% 0 300)",
+          "oklch(61% 0 300)",
+          "oklch(72% 0 300)",
+          "oklch(84% 0 300)",
+          "oklch(95% 0 300)"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Quiet Ink",
+        "displayName": "Muted Gray",
         "tonalRamp": [
-          "oklch(15% 0.009 110)",
-          "oklch(26% 0.009 110)",
-          "oklch(38% 0.009 110)",
-          "oklch(49% 0.009 110)",
-          "oklch(61% 0.009 110)",
-          "oklch(72% 0.009 110)",
-          "oklch(84% 0.009 110)",
-          "oklch(95% 0.009 110)"
-        ]
-      },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Paper Rule",
-        "tonalRamp": [
-          "oklch(15% 0.009 105)",
-          "oklch(26% 0.009 105)",
-          "oklch(38% 0.009 105)",
-          "oklch(49% 0.009 105)",
-          "oklch(61% 0.009 105)",
-          "oklch(72% 0.009 105)",
-          "oklch(84% 0.009 105)",
-          "oklch(95% 0.009 105)"
+          "oklch(15% .005 300)",
+          "oklch(26% .005 300)",
+          "oklch(38% .005 300)",
+          "oklch(49% .005 300)",
+          "oklch(61% .005 300)",
+          "oklch(72% .005 300)",
+          "oklch(84% .005 300)",
+          "oklch(95% .005 300)"
         ]
       },
       "dark-muted": {
         "role": "neutral",
-        "displayName": "Soft Paper",
+        "displayName": "Muted Gray",
         "tonalRamp": [
-          "oklch(15% 0.009 105)",
-          "oklch(26% 0.009 105)",
-          "oklch(38% 0.009 105)",
-          "oklch(49% 0.009 105)",
-          "oklch(61% 0.009 105)",
-          "oklch(72% 0.009 105)",
-          "oklch(84% 0.009 105)",
-          "oklch(95% 0.009 105)"
+          "oklch(15% .005 300)",
+          "oklch(26% .005 300)",
+          "oklch(38% .005 300)",
+          "oklch(49% .005 300)",
+          "oklch(61% .005 300)",
+          "oklch(72% .005 300)",
+          "oklch(84% .005 300)",
+          "oklch(95% .005 300)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Dark Rule",
+        "tonalRamp": [
+          "oklch(15% .005 300)",
+          "oklch(26% .005 300)",
+          "oklch(38% .005 300)",
+          "oklch(49% .005 300)",
+          "oklch(61% .005 300)",
+          "oklch(72% .005 300)",
+          "oklch(84% .005 300)",
+          "oklch(95% .005 300)"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Opening cinematic headline; responsive overrides are documented in DESIGN.md."
+        "purpose": "Opening cinematic headline, with light lavender emphasis on \u201chist\u00f3rias\u201d; responsive overrides are documented in DESIGN.md."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section introductions."
+        "purpose": "Portfolio section introduction; other headings adapt to content."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Project names."
+        "purpose": "Centered titles on the active portrait carousel card."
       },
       "body": {
         "displayName": "Body",
@@ -118,36 +132,51 @@
         "purpose": "Temporary mobile menu separation."
       },
       {
-        "name": "image-caption-text",
-        "value": "0 1px 6px #000",
-        "purpose": "Text-shadow for category captions over source images."
+        "name": "personal-polaroid",
+        "value": "0 14px 35px #0005",
+        "purpose": "Local depth beneath personal video."
       },
       {
         "name": "floating-contact",
-        "value": "0 8px 24px #0003",
-        "purpose": "Separate the actionable WhatsApp shortcut from media and reading surfaces."
+        "value": "0 8px 24px #0005",
+        "purpose": "Separate floating contact from films."
       }
     ],
     "motion": [
       {
-        "name": "image-hover-duration",
-        "value": ".7s",
-        "purpose": "Project image scale to 1.035 on hover and keyboard focus."
+        "name": "orbit-transform",
+        "value": ".85s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Circular perspective settling transition; disabled during continuous pointer dragging and with reduced motion."
       },
       {
-        "name": "image-hover-ease",
-        "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "Project image transition easing."
+        "name": "orbit-opacity",
+        "value": ".65s ease",
+        "purpose": "Recending film opacity; none with reduced motion."
       },
       {
         "name": "control-transition",
         "value": ".2s",
-        "purpose": "Filter and outline-button state transitions."
+        "purpose": "Filter and outline-action states."
       },
       {
         "name": "play-transition",
         "value": ".25s",
         "purpose": "Circular play state transitions."
+      },
+      {
+        "name": "preview-reveal",
+        "value": ".35s ease",
+        "purpose": "Fade a silent preview over its retained poster only after playback is ready; none with reduced motion."
+      },
+      {
+        "name": "polaroid-settle",
+        "value": ".9s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Straighten the personal film once at 35% visibility; reduced motion starts straight."
+      },
+      {
+        "name": "journey-scroll-progress",
+        "value": "0\u20131 section scroll progress",
+        "purpose": "SVG mask reveals light-lavender dotted route and icons while scrolling; reduced motion shows complete highlight."
       }
     ],
     "breakpoints": [
@@ -172,7 +201,7 @@
       "refersTo": "button-primary",
       "description": "Compact primary contact action.",
       "html": "<button class=\"ds-contact\">Vamos conversar</button>",
-      "css": ".ds-contact{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:var(--accent,#d5f875);color:var(--ink,#171917);border:0;border-radius:100px;padding:13px 22px;min-height:46px;font-weight:700}.ds-contact:hover{background:#e2ffa0}.ds-contact:focus-visible{outline:2px solid #749b2b;outline-offset:6px}"
+      "css": ".ds-contact{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:var(--ink,#f2f0ed);color:var(--night,#0a0a0a);border:0;border-radius:100px;padding:13px 22px;min-height:46px;font-weight:700}.ds-contact:hover{background:#d0c1e5}.ds-contact:focus-visible{outline:2px solid #d2b9f5;outline-offset:6px}"
     },
     {
       "name": "Outline action",
@@ -180,7 +209,7 @@
       "refersTo": "button-outline",
       "description": "Secondary archive or briefing action.",
       "html": "<button class=\"ds-outline\">Explorar todos os projetos</button>",
-      "css": ".ds-outline{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:var(--ink,#171917);border:1px solid currentColor;border-radius:100px;padding:13px 25px;min-height:48px;transition:background .2s,color .2s}.ds-outline:hover{background:var(--ink,#171917);color:var(--paper,#f3f2ee)}.ds-outline:focus-visible{outline:2px solid #749b2b;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none}}"
+      "css": ".ds-outline{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:var(--ink,#f2f0ed);border:1px solid currentColor;border-radius:100px;padding:13px 25px;min-height:48px;transition:background .2s,color .2s}.ds-outline:hover{background:var(--ink,#f2f0ed);color:var(--night,#0a0a0a)}.ds-outline:focus-visible{outline:2px solid #d2b9f5;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none}}"
     },
     {
       "name": "Project filter",
@@ -188,57 +217,41 @@
       "refersTo": "filter",
       "description": "A wrapping category action; pressed state identifies selection.",
       "html": "<button class=\"ds-filter\" aria-pressed=\"true\">Todos os filmes</button>",
-      "css": ".ds-filter{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:var(--ink,#171917);border:0;border-radius:100px;padding:11px 17px;min-height:44px;transition:background .2s}.ds-filter:hover{background:#e3e4dc}.ds-filter[aria-pressed=true]{background:var(--ink,#171917);color:var(--paper,#f3f2ee)}.ds-filter:focus-visible{outline:2px solid #749b2b;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-filter{transition:none}}"
+      "css": ".ds-filter{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:var(--ink,#f2f0ed);border:0;border-radius:100px;padding:11px 17px;min-height:44px;transition:background .2s}.ds-filter:hover{background:#29262d}.ds-filter[aria-pressed=true]{background:var(--ink,#f2f0ed);color:var(--night,#0a0a0a)}.ds-filter:focus-visible{outline:2px solid #d2b9f5;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-filter{transition:none}}"
     },
     {
       "name": "Briefing field",
       "kind": "input",
       "refersTo": "field",
-      "description": "Labeled transparent field on a chartreuse surface.",
+      "description": "Labeled transparent field on the dark contact surface.",
       "html": "<div class=\"ds-field-surface\"><label class=\"ds-label\">Seu nome<input class=\"ds-field\" autocomplete=\"name\" placeholder=\"Como posso te chamar?\" required /></label></div>",
-      "css": ".ds-field-surface{background:var(--accent,#d5f875);color:var(--ink,#171917);padding:24px}.ds-label{display:block;font:14px Manrope,Arial,sans-serif}.ds-field{display:block;width:100%;margin-top:10px;padding:15px 0;background:transparent;color:var(--ink,#171917);border:0;border-bottom:1px solid #17191770;border-radius:0;min-height:48px;font:16px Manrope,Arial,sans-serif}.ds-field::placeholder{color:#445425;opacity:1}.ds-field:focus-visible{outline:2px solid var(--ink,#171917);outline-offset:6px}"
+      "css": ".ds-field-surface{background:#1b191e;color:var(--ink,#f2f0ed);padding:24px}.ds-label{display:block;font:14px Manrope,Arial,sans-serif}.ds-field{display:block;width:100%;margin-top:10px;padding:15px 0;background:transparent;color:var(--ink,#f2f0ed);border:0;border-bottom:1px solid #ffffff55;border-radius:0;min-height:48px;font:16px Manrope,Arial,sans-serif}.ds-field::placeholder{color:#b5b2b8;opacity:1}.ds-field:focus-visible{outline:2px solid var(--ink,#f2f0ed);outline-offset:6px}"
     },
     {
       "name": "Navigation links",
       "kind": "nav",
       "refersTo": "navigation",
       "description": "Quiet desktop links on charcoal.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação principal\"><a href=\"#trabalhos\">Trabalhos</a><a href=\"#sobre\">Sobre</a></nav>",
-      "css": ".ds-nav{display:flex;gap:34px;background:var(--ink,#171917);color:var(--paper,#f3f2ee);padding:20px;font:14px Manrope,Arial,sans-serif}.ds-nav a{display:flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}.ds-nav a:hover{color:var(--accent,#d5f875)}.ds-nav a:focus-visible{outline:2px solid #749b2b;outline-offset:6px}"
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navega\u00e7\u00e3o principal\"><a href=\"#trabalhos\">Trabalhos</a><a href=\"#sobre\">Sobre</a></nav>",
+      "css": ".ds-nav{display:flex;gap:34px;background:var(--night,#0a0a0a);color:var(--ink,#f2f0ed);padding:20px;font:14px Manrope,Arial,sans-serif}.ds-nav a{display:flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}.ds-nav a:hover{color:var(--accent,#d2b9f5)}.ds-nav a:focus-visible{outline:2px solid #d2b9f5;outline-offset:6px}"
     },
     {
-      "name": "Play affordance",
-      "kind": "button",
-      "refersTo": "play-control",
-      "description": "Circular control paired with a visible film action.",
-      "html": "<button class=\"ds-reel\"><span class=\"ds-play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m9 5 11 7-11 7V5Z\" fill=\"currentColor\"/></svg></span>Entre em cena</button>",
-      "css": ".ds-reel{display:inline-flex;align-items:center;gap:17px;background:var(--ink,#171917);color:white;border:0;padding:20px;font:15px Manrope,Arial,sans-serif;cursor:pointer}.ds-play{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border:1px solid #ffffff90;border-radius:50%;transition:background .25s,color .25s}.ds-reel:hover .ds-play{background:var(--accent,#d5f875);color:var(--ink,#171917);border-color:var(--accent,#d5f875)}.ds-reel:focus-visible{outline:2px solid #749b2b;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-play{transition:none}}"
-    },
-    {
-      "name": "WhatsApp shortcut",
-      "kind": "button",
-      "refersTo": "whatsapp-shortcut",
-      "description": "Safe-area-aware contact link; mobile becomes a labeled-for-assistive-technology icon circle. Visibility follows the documented intersection rule.",
-      "html": "<a class=\"ds-whatsapp\" href=\"https://wa.me/5561992508562\" aria-label=\"Conversar com Miguel no WhatsApp\" target=\"_blank\" rel=\"noreferrer\"><svg width=\"25\" height=\"25\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z\" fill=\"currentColor\"/></svg><span>WhatsApp</span></a>",
-      "css": ".ds-whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:56px;padding:14px 20px;border-radius:100px;background:var(--ink,#171917);color:var(--accent,#d5f875);box-shadow:0 8px 24px #0003;font:700 14px Manrope,Arial,sans-serif;text-decoration:none}.ds-whatsapp:hover{background:var(--accent,#d5f875);color:var(--ink,#171917)}.ds-whatsapp:focus-visible{outline:2px solid #749b2b;outline-offset:6px}@media(max-width:700px){.ds-whatsapp{width:56px;height:56px;padding:14px}.ds-whatsapp span{display:none}}"
-    },
-    {
-      "name": "Mobile WhatsApp header link",
-      "kind": "button",
-      "refersTo": "navigation",
-      "description": "Circular brand link used beside the mobile menu toggle.",
-      "html": "<a class=\"ds-header-whatsapp\" href=\"https://wa.me/5561992508562\" aria-label=\"Conversar com Miguel no WhatsApp\" target=\"_blank\" rel=\"noreferrer\"><svg width=\"25\" height=\"25\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z\" fill=\"currentColor\"/></svg></a>",
-      "css": ".ds-header-whatsapp{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--ink,#171917);color:var(--accent,#d5f875);border:1px solid #ffffff40;border-radius:50%}.ds-header-whatsapp svg{width:23px;height:23px}.ds-header-whatsapp:focus-visible{outline:2px solid #749b2b;outline-offset:6px}"
+      "name": "Circular film card",
+      "kind": "card",
+      "refersTo": "film-card",
+      "description": "Active portrait film link; neighboring cards recede in perspective. The live card layers an in-view silent real-film preview over its retained cover when available; this static sample illustrates the frame and action.",
+      "html": "<a class=\"ds-film\" href=\"#trabalhos\"><span class=\"ds-category\">Filme</span><span class=\"ds-caption\"><strong>Uma hist\u00f3ria em movimento</strong><span class=\"ds-play\">\u25b6 Ver filme</span></span></a>",
+      "css": ".ds-film{position:relative;display:block;width:270px;height:367px;border-radius:16px;overflow:hidden;background:linear-gradient(#191919,#303030 40%,#101010);color:white;text-decoration:none;font:14px Manrope,Arial,sans-serif;text-align:center}.ds-category{position:absolute;top:22px;left:15px;right:15px;letter-spacing:.04em}.ds-caption{position:absolute;bottom:28px;left:20px;right:20px;display:flex;flex-direction:column;align-items:center;gap:20px}.ds-caption strong{font-size:24px;font-weight:700;line-height:1.18;letter-spacing:-.025em}.ds-play{display:inline-flex;padding:11px 17px;border-radius:100px;background:#f2f0ed;color:#101010}.ds-film:hover .ds-play{background:#d0c1e5}.ds-film:focus-visible{outline:2px solid #d2b9f5;outline-offset:6px}"
     }
   ],
   "narrative": {
     "northStar": "Cinematic Editorial",
-    "overview": "Large real films, expressive typography and quiet navigation establish a professional portfolio with the rhythm of a director's treatment. Images carry the atmosphere; the interface makes the work, contribution and next action clear.\n\nThe confirmed world combines charcoal, warm paper and chartreuse with asymmetric, unboxed media. Manrope supplies both confident titles and restrained reading text. Motion follows the film and visitor interaction, with an equally complete reduced-motion presentation. The home-page sequence is recorded in `.impeccable/surfaces/home.md`.",
+    "overview": "Large real films, expressive typography and quiet navigation establish a professional portfolio with the rhythm of a director's treatment. Images carry the atmosphere; the interface makes the work, contribution and next action clear.\n\nThe user-confirmed rebrand uses a neutral dark screening-room foundation inspired by lolawilde.com, with light lavender heading emphasis, a scroll-revealed biography trail and restrained interface details. Manrope supplies both confident titles and clear reading text. Depth comes from real media and the circular perspective carousel, with an equally complete reduced-motion presentation. The home-page sequence is recorded in `.impeccable/surfaces/home.md`.",
     "keyCharacteristics": [
       "Real moving images as the visual lead.",
       "Large, tightly tracked editorial headings.",
-      "Asymmetric media with captions outside the frame.",
-      "Flat surfaces, thin rules and selective chartreuse.",
+      "Neutral dark surfaces with off-white text, light lavender heading emphasis and restrained accents.",
+      "Rounded film frames arranged in circular perspective.",
       "Visible controls, keyboard focus and reduced-motion support."
     ],
     "rules": [
@@ -248,21 +261,26 @@
         "section": "colors"
       },
       {
+        "name": "The Accent Restraint Rule",
+        "body": "Use light lavender for selected heading words, small details and interaction states; preserve neutral dark backgrounds across large sections.",
+        "section": "colors"
+      },
+      {
         "name": "The One Family Rule",
         "body": "Create hierarchy through scale, weight, spacing and placement within Manrope.",
         "section": "typography"
       }
     ],
     "dos": [
-      "Do lead with real films and keep titles and participation readable beside the media.",
-      "Do use Manrope hierarchy, warm neutrals and chartreuse consistently.",
-      "Do preserve visible labels, focus states, mobile touch targets and reduced-motion behavior.",
-      "Do use thin rules and space to separate content."
+      "Do lead with real films and preserve project titles, participation and complete source credits.",
+      "Do use Manrope hierarchy, neutral dark surfaces, light lavender heading emphasis and restrained interface details.",
+      "Do preserve visible controls, keyboard focus, mobile touch targets and reduced-motion behavior.",
+      "Do keep the large opening video and the circular perspective gallery."
     ],
     "donts": [
-      "Don't add raised card shells around the film grid.",
+      "Don't turn the contact area or other large sections into purple fills.",
+      "Don't flatten the selected circular carousel into a plain horizontal strip.",
       "Don't replace the opening film with a decorative placeholder or enable autoplay sound.",
-      "Don't treat small secondary credits as the default size for primary labels.",
       "Don't assume a variable font axis exists in the supplied static assets."
     ]
   }

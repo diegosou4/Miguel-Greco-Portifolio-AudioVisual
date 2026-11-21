@@ -1,8 +1,10 @@
 # Miguel Greco — Audiovisual Portfolio
 
-A cinematic portfolio for filmmaker and editor Miguel Greco, built with React and Vite. Real films, editorial typography, an asymmetric project gallery, and direct WhatsApp contact bring the work to the foreground.
+A cinematic portfolio for filmmaker and editor Miguel Greco, built with React and Vite. Real films, editorial typography, a circular project carousel, and direct WhatsApp contact bring the work to the foreground.
 
 The website content is in Brazilian Portuguese. This README documents the project in English.
+
+**Live site:** <https://lemu.re/p/Miguel.Greco.Visual/>
 
 ## Screenshots
 
@@ -10,13 +12,15 @@ The website content is in Brazilian Portuguese. This README documents the projec
 
 **Opening film**
 
+![Animated preview of the opening section](docs/screenshots/desktop-opening.gif)
+
 ![Desktop homepage with the opening film](docs/screenshots/desktop-home.jpg)
 
-**About Miguel**
+**Circular film collection**
 
-The biography pairs a playable Polaroid with a dotted journey through Miguel's work and travel references.
+Explore films in a perspective carousel with silent previews, including the visible side cards.
 
-![About section with the Polaroid video and illustrated journey](docs/screenshots/desktop-about.jpg)
+![Circular film collection with centered controls](docs/screenshots/desktop-gallery.jpg)
 
 ### Mobile
 
@@ -30,11 +34,12 @@ Screenshots show actual browser renders. The opening video's frame changes durin
 ## Features
 
 - Muted opening video with play and pause controls and reduced-motion support.
-- A curated project selection and a complete archive of 13 projects.
-- Category filters for brands and content, weddings, events, and personal work.
+- A circular 3D carousel with drag, keyboard and button navigation, all 13 original projects available immediately.
+- Seven-second silent previews for 12 films and the personal Polaroid, with visible side-card playback and pause controls.
+- Filters matching the original portfolio: weddings, endomarketing, events, courses, mini documentaries, advertising films, AI videos, animated title cards and video carousels.
 - Individual film pages with participation credits, Google Drive playback, and original-file links.
-- A personal video presented as a Polaroid, with an airplane-photo preview. Playback and sound start after the visitor presses play.
-- A responsive dotted journey connecting the biography heading to the Polaroid, with travel and audiovisual symbols.
+- A personal video presented as a Polaroid that straightens on entry. A silent preview plays in view; the main play button opens the complete video with sound and native controls. An airplane-photo poster remains beneath the preview.
+- A responsive dotted journey connecting the biography heading to the Polaroid, with travel and audiovisual symbols that progressively turn light purple while scrolling.
 - WhatsApp links in the mobile header, navigation, contact section, and floating shortcut.
 - An optional briefing form that prepares a WhatsApp message for the visitor to review and send.
 - Responsive layouts, keyboard focus states, and self-hosted Manrope fonts.

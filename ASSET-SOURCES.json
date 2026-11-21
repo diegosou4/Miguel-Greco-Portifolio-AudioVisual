@@ -17,7 +17,111 @@
     "project-12.jpg": "https://drive.google.com/file/d/18NUWDGHjsyTcvJ_l-SdmINSPHJoqTjCC/view?usp=sharing",
     "project-13.jpg": "https://drive.google.com/file/d/1kFQoy4GxPIuhewUhw_4B39Uno9eFd0b5/view?usp=sharing",
     "WhatsApp Video 2026-11-21 at 14.05.14.mp4": "User-supplied local asset, added 2026-11-21; 576x1024; duration 25.15 seconds",
-    "personal-video-poster.jpg": "https://lh3.googleusercontent.com/d/1YGmdqhgIkKq6THI81__HI0GRX-fwga6v=w1200 — original travel photograph used as video poster"
+    "personal-video-poster.jpg": "https://lh3.googleusercontent.com/d/1YGmdqhgIkKq6THI81__HI0GRX-fwga6v=w1200 — original travel photograph used as video poster",
+    "previews/bruno-e-ana.mp4": {
+      "source": "https://drive.google.com/file/d/1w_jMNcbb7ix9OBQuMYVCwTra-2mFpNv9/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/mardisa.mp4": {
+      "source": "https://drive.google.com/file/d/117NpygKdz8-44meC9TQIP2kyIJzuVtWm/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/celebracao-de-natal.mp4": {
+      "source": "https://drive.google.com/file/d/14B15RZShB90kJPvAah6gj7ndhQQ0yaNP/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/amstel-ultra.mp4": {
+      "source": "https://drive.google.com/file/d/1sGXwXSV3OCsljg69jzvNkd5mqxxnIaYb/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/monster-energy.mp4": {
+      "source": "https://drive.google.com/file/d/1lOW-u_882oufOZRm_QzNMtUC7ijwDg4m/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/conteudo-e-curso.mp4": {
+      "source": "https://drive.google.com/file/d/14XogvODDZrflpdz8ncYkm8qNqXyX6teo/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/masterclass.mp4": {
+      "source": "https://drive.google.com/file/d/1zCLn9m1ZlK5A-q-oYugq1xuDVEJtWXWc/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/saude-indigena.mp4": {
+      "source": "https://drive.google.com/file/d/1Cl8R5hOhZZu0Vn27p9zq_QvWofNxF_WK/view?usp=drive_link",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/mafra.mp4": {
+      "source": "https://drive.google.com/file/d/1IMd6lmn8qAeiZs0aUQ6rzW-u09zse477/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/ecap.mp4": {
+      "source": "https://drive.google.com/file/d/1LGmAO8m46AOEK5UjK05CRUWcWId4o4Or/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/sintese-visual.mp4": {
+      "source": "https://drive.google.com/file/d/10qXypEElujjkh7oUIBBZ98WZIygagT3W/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/motion-design.mp4": {
+      "source": "https://drive.google.com/file/d/1hS9MyoJw3VpGsBPE788AD_WlLSosRyRA/view?usp=sharing",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 640,
+      "audio": false
+    },
+    "previews/miguel-pessoal.mp4": {
+      "source": "User-supplied WhatsApp Video 2026-11-21 at 14.05.14.mp4",
+      "excerptStartSeconds": 2,
+      "durationSeconds": 7,
+      "width": 480,
+      "height": 854,
+      "audio": false
+    }
   },
   "icons": {
     "WhatsApp": "https://github.com/simple-icons/simple-icons/blob/develop/icons/whatsapp.svg (CC0)"

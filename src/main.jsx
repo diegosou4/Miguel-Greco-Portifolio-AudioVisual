@@ -5,7 +5,18 @@ import './styles.css';
 
 const whatsapp = 'https://wa.me/5561992508562';
 const contactLink = (message = 'Olá, Miguel! Vi seu portfólio e gostaria de conversar sobre um projeto.') => `${whatsapp}?text=${encodeURIComponent(message)}`;
-const categories = [{ id: 'todos', label: 'Todos os filmes' }, { id: 'marcas', label: 'Marcas & conteúdo' }, { id: 'casamentos', label: 'Casamentos' }, { id: 'eventos', label: 'Eventos & autorais' }];
+const categories = [
+  { id: 'todos', label: 'Todos os filmes' },
+  { id: 'casamentos', label: 'Casamentos' },
+  { id: 'endomarketing', label: 'Endomarketing' },
+  { id: 'eventos', label: 'Eventos' },
+  { id: 'cursos', label: 'Cursos' },
+  { id: 'minidocs', label: 'Mini docs' },
+  { id: 'publicitarios', label: 'Filmes publicitários' },
+  { id: 'ia', label: 'Vídeos com IA' },
+  { id: 'cartelas', label: 'Cartelas animadas' },
+  { id: 'carrossel', label: 'Carrossel em vídeo' }
+];
 
 // WhatsApp brand glyph: Simple Icons, CC0. https://simpleicons.org/
 const whatsappGlyph = 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z';
@@ -18,6 +29,8 @@ function Icon({ name, ...props }) {
     {name === 'menu' && <><path d="M4 8h16M4 16h16" /></>}
     {name === 'close' && <path d="m6 6 12 12M6 18 18 6" />}
     {name === 'external' && <><path d="M14 4h6v6M20 4l-9 9M10 4H4v16h16v-6" /></>}
+    {name === 'previous' && <path d="m14 6-6 6 6 6" />}
+    {name === 'next' && <path d="m10 6 6 6-6 6" />}
     {name === 'chevron' && <path d="m7 10 5 5 5-5" />}
   </svg>;
 }
@@ -81,37 +94,108 @@ function Hero() {
       <div className="hero-shade" />
     </div>
     <div className="hero-content">
-      <div className="hero-topline"><span>Captação. Montagem. História.</span><span>Um portfólio em movimento</span></div>
       <div className="hero-statement"><h1>Um olhar.<br />Muitas <em>histórias.</em></h1><p>Filmes para marcas, pessoas<br />e momentos que ficam.</p></div>
       <div className="hero-bottom"><a className="reel-link" href="#filme/em-movimento"><span className="play-circle"><Icon name="play" /></span><span>Entre em cena<span className="reel-sublabel">Veja o filme de abertura</span></span></a><a className="explore-link" href="#trabalhos">Explore os trabalhos<span className="scroll-line" aria-hidden="true" /></a><button type="button" className="motion-button" aria-label={paused ? 'Reproduzir vídeo de fundo' : 'Pausar vídeo de fundo'} onClick={toggle}><Icon name={paused ? 'play' : 'pause'} /><span>{paused ? 'Reproduzir' : 'Pausar'}</span></button></div>
     </div>
   </section>;
 }
 
-function ProjectCard({ project, index }) {
-  return <article className={`project project-position-${index % 6} ${project.portrait ? 'portrait-project' : ''}`}>
-    <a className="project-link" href={`#filme/${project.slug}`} aria-label={`Ver filme: ${project.title}`}>
-      <div className="project-image"><img src={project.image} alt={`Cena de ${project.title}`} loading="lazy" width={1600} height={900} /><span className="project-play"><Icon name="play" /><span>Ver filme</span></span><span className="project-category">{project.label}</span></div>
-      <div className="project-caption"><h3>{project.title}</h3><span>{project.techDetails.split(' • ')[0]}</span></div>
-      <p className="project-line">{project.line}</p>
-    </a>
-  </article>;
+function SilentPreview({ src, active, paused = false, allowMotion = false }) {
+  const ref = useRef(null);
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let inView = false, alive = true;
+    const sync = () => {
+      const canPlay = active && !paused && inView && !document.hidden && (allowMotion || (!preference.matches && !navigator.connection?.saveData));
+      if (canPlay) { video.muted = true; video.play().catch(() => { if (alive) setReady(false); }); }
+      else video.pause();
+    };
+    const observer = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; sync(); }, { threshold: .25 });
+    observer.observe(video);
+    preference.addEventListener('change', sync);
+    document.addEventListener('visibilitychange', sync);
+    if (!active) setReady(false);
+    return () => { alive = false; observer.disconnect(); preference.removeEventListener('change', sync); document.removeEventListener('visibilitychange', sync); video.pause(); };
+  }, [active, paused, allowMotion, src]);
+  return <video ref={ref} className={`silent-preview ${ready && active ? 'preview-ready' : ''}`} src={active ? src : undefined} muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1} onPlaying={() => setReady(true)} onError={() => setReady(false)} />;
 }
 
 function Portfolio({ filter, setFilter }) {
-  const [expanded, setExpanded] = useState(false);
-  const list = filter === 'todos' ? expanded ? projects : [projects[1], projects[0], projects[3], projects[4], projects[2], projects[8]] : projects.filter(p => p.group === filter);
+  const [previewsPaused, setPreviewsPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches || !!navigator.connection?.saveData);
+  const [previewMotionAllowed, setPreviewMotionAllowed] = useState(false);
+  const [active, setActive] = useState(0);
+  const [drag, setDrag] = useState(0);
+  const stageRef = useRef(null);
+  const gesture = useRef(null);
+  const suppressClick = useRef(false);
+  const wheelTime = useRef(0);
+  const list = filter === 'todos' ? projects : projects.filter(p => p.category === filter);
+  const selection = list.map(p => p.id).join(',');
+  const current = ((active % list.length) + list.length) % list.length;
+  const selected = list[current];
+  useEffect(() => { setActive(0); }, [selection]);
+  useEffect(() => {
+    const stage = stageRef.current;
+    const wheel = e => {
+      // Vertical scrolling remains free; horizontal trackpad gestures turn the ring.
+      if (e.ctrlKey || (!e.shiftKey && Math.abs(e.deltaX) <= Math.abs(e.deltaY))) return;
+      const delta = e.shiftKey ? e.deltaY || e.deltaX : e.deltaX;
+      if (Math.abs(delta) < 8 || list.length < 2) return;
+      e.preventDefault();
+      if (Date.now() - wheelTime.current < 420) return;
+      wheelTime.current = Date.now();
+      setActive(value => value + Math.sign(delta));
+    };
+    stage.addEventListener('wheel', wheel, { passive: false });
+    return () => stage.removeEventListener('wheel', wheel);
+  }, [list.length]);
+  const turn = direction => setActive(value => value + direction);
+  const pointerDown = e => { if (e.button !== 0 || list.length < 2) return; gesture.current = { x: e.clientX, y: e.clientY, id: e.pointerId }; suppressClick.current = false; };
+  const pointerMove = e => {
+    if (!gesture.current) return;
+    const dx = e.clientX - gesture.current.x, dy = e.clientY - gesture.current.y;
+    if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
+      suppressClick.current = true;
+      if (!stageRef.current.hasPointerCapture(e.pointerId)) stageRef.current.setPointerCapture(e.pointerId);
+      const width = stageRef.current.querySelector('.orbit-card').offsetWidth;
+      setDrag(Math.max(-1, Math.min(1, -dx / (width * 1.1))));
+    }
+  };
+  const pointerEnd = e => {
+    if (!gesture.current) return;
+    const dx = e.clientX - gesture.current.x, dy = e.clientY - gesture.current.y;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) turn(dx < 0 ? 1 : -1);
+    gesture.current = null;
+    setDrag(0);
+    if (stageRef.current.hasPointerCapture(e.pointerId)) stageRef.current.releasePointerCapture(e.pointerId);
+  };
+  const cancelGesture = () => { gesture.current = null; suppressClick.current = false; setDrag(0); };
   return <section className="portfolio section-pad" id="trabalhos" aria-labelledby="work-title">
     <div className="section-intro"><h2 id="work-title">Cada história,<br /><span>um novo olhar.</span></h2><p>Uma seleção de encontros entre imagem, ritmo e intenção.</p></div>
-    <div className="portfolio-toolbar"><div className="filters" role="group" aria-label="Filtrar projetos">{categories.map(c => <button key={c.id} type="button" aria-pressed={filter === c.id} className={filter === c.id ? 'active' : ''} onClick={() => setFilter(c.id)}>{c.label}</button>)}</div><span className="film-count" aria-live="polite">{list.length} {list.length === 1 ? 'filme' : 'filmes'}</span></div>
-    <div className="project-grid">{list.map((p, index) => <ProjectCard project={p} index={index} key={p.id} />)}</div>
-    {filter === 'todos' && <div className="archive-action"><p>{expanded ? 'Você está vendo o acervo completo.' : 'Há mais histórias por aqui.'}</p><button className="outline-button" type="button" aria-expanded={expanded} onClick={() => { setExpanded(!expanded); if (expanded) document.getElementById('trabalhos')?.scrollIntoView({ behavior: 'instant' }); }}>{expanded ? 'Voltar à seleção' : 'Explorar todos os 13 projetos'}</button></div>}
+    <div className="portfolio-toolbar"><div className="filters" role="group" aria-label="Filtrar projetos">{categories.map(c => <button key={c.id} type="button" aria-pressed={filter === c.id} className={filter === c.id ? 'active' : ''} onClick={() => { setActive(0); setFilter(c.id); }}>{c.label}</button>)}</div><span className="film-count">{list.length} {list.length === 1 ? 'filme' : 'filmes'}</span></div>
+    <div className="film-carousel" role="region" aria-roledescription="carrossel" aria-label="Filmes do portfólio">
+      <div className={`film-orbit ${drag ? 'is-dragging' : ''}`} ref={stageRef} tabIndex={0} aria-label="Carrossel circular de filmes. Arraste para os lados ou use as teclas esquerda e direita." onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={cancelGesture} onDragStart={e => e.preventDefault()} onClickCapture={e => { if (suppressClick.current) { e.preventDefault(); e.stopPropagation(); suppressClick.current = false; } }} onKeyDown={e => { if (e.target !== e.currentTarget) return; if (e.key === 'ArrowRight') { e.preventDefault(); turn(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); turn(-1); } }}>
+        {list.map((p, i) => {
+          let offset = ((i - current + list.length / 2 + list.length) % list.length) - list.length / 2;
+          const distance = Math.abs(offset + drag), visible = Math.abs(offset) <= 2;
+          const angle = (offset + drag) * .47;
+          const style = { '--orbit-x': Math.sin(angle), '--orbit-z': Math.cos(angle) - 1, '--orbit-angle': `${angle}rad`, '--orbit-opacity': visible ? distance > 1 ? .38 : distance ? .78 : 1 : 0, zIndex: 10 - Math.round(distance) };
+          const content = <><img src={p.image} alt={`Cena de ${p.title}`} loading={visible ? 'eager' : 'lazy'} draggable="false" />{p.preview && <SilentPreview src={p.preview} active={visible} paused={previewsPaused} allowMotion={previewMotionAllowed} />}<span className="orbit-shade" /><span className="orbit-category">{p.label}</span><span className="orbit-caption"><span className="orbit-title">{p.title}</span><span className="orbit-play"><Icon name="play" />{offset === 0 ? 'Ver filme' : 'Selecionar filme'}</span></span></>;
+          return <article key={p.id} className={`orbit-card ${offset === 0 ? 'is-current' : ''}`} style={style} aria-hidden={!visible} inert={!visible ? true : undefined}>{offset === 0 ? <a href={`#filme/${p.slug}`} aria-label={`Ver filme: ${p.title}`}>{content}</a> : <button type="button" tabIndex={-1} aria-label={`Selecionar filme: ${p.title}`} onClick={() => turn(offset)}>{content}</button>}</article>;
+        })}
+      </div>
+      <div className="orbit-details"><p>{selected.techDetails.split(' • ')[0]}</p><span>{selected.line}</span></div>
+      <div className="carousel-bottom"><div className="carousel-controls"><button type="button" aria-label="Filme anterior" disabled={list.length < 2} onClick={() => turn(-1)}><Icon name="previous" /></button><span className="carousel-position" aria-live="polite" aria-atomic="true">{String(current + 1).padStart(2, '0')} <span>/ {String(list.length).padStart(2, '0')}</span></span><button type="button" aria-label="Próximo filme" disabled={list.length < 2} onClick={() => turn(1)}><Icon name="next" /></button></div><div className="carousel-hint"><p>Arraste para os lados e descubra.</p>{list.some(project => project.preview) && <button type="button" className="preview-toggle" aria-label={previewsPaused ? 'Reproduzir prévias dos filmes' : 'Pausar prévias dos filmes'} onClick={() => { setPreviewsPaused(!previewsPaused); setPreviewMotionAllowed(true); }}><Icon name={previewsPaused ? 'play' : 'pause'} /><span>{previewsPaused ? 'Reproduzir prévias' : 'Pausar prévias'}</span></button>}</div></div>
+    </div>
   </section>;
 }
 
 function Pathways({ choose }) {
   return <section className="pathways" aria-label="Encontre o filme para a sua história">
-    <div className="pathway pathway-brands"><div className="pathway-copy"><h2>Uma marca.<br /><em>Uma presença.</em></h2><p>Publicidade, conteúdo e eventos.<br />Seu universo traduzido em imagem.</p><a href="#trabalhos" className="text-link" onClick={() => choose('marcas')}>Conheça os filmes para marcas</a></div><img src="/assets/project-4.jpg" alt="Detalhe de uma ativação da Amstel Ultra" loading="lazy" width="1600" height="900" /></div>
+    <div className="pathway pathway-brands"><div className="pathway-copy"><h2>Uma marca.<br /><em>Uma presença.</em></h2><p>Publicidade, conteúdo e eventos.<br />Seu universo traduzido em imagem.</p><a href="#trabalhos" className="text-link" onClick={() => choose('publicitarios')}>Conheça os filmes publicitários</a></div><img src="/assets/project-4.jpg" alt="Detalhe de uma ativação da Amstel Ultra" loading="lazy" width="1600" height="900" /></div>
     <div className="pathway pathway-weddings"><img src="/assets/project-1.jpg" alt="As mãos de Bruno e Ana durante o casamento" loading="lazy" width="1600" height="900" /><div className="pathway-copy"><h2>Um dia.<br /><em>Todos os sentidos.</em></h2><p>O gesto, o abraço, o que passou depressa.<br />Um filme para voltar a sentir.</p><a href="#filme/bruno-e-ana" className="text-link">Conheça o filme de Bruno & Ana</a></div></div>
   </section>;
 }
@@ -139,6 +223,24 @@ function TrailIcon({ type }) {
 function JourneyTrail() {
   const ref = useRef(null);
   const [geometry, setGeometry] = useState(null);
+  useEffect(() => {
+    const layer = ref.current;
+    const section = layer.closest('.about');
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame;
+    const draw = () => {
+      const bounds = section.getBoundingClientRect();
+      const progress = preference.matches ? 1 : Math.max(0, Math.min(1, (innerHeight * .7 - bounds.top) / (bounds.height + innerHeight * .2)));
+      layer.style.setProperty('--journey-progress', progress);
+    };
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(draw); };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    preference.addEventListener('change', schedule);
+    const observer = new ResizeObserver(schedule); observer.observe(section);
+    draw();
+    return () => { cancelAnimationFrame(frame); observer.disconnect(); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); preference.removeEventListener('change', schedule); };
+  }, []);
   useEffect(() => {
     const section = ref.current?.closest('.about');
     if (!section) return;
@@ -172,19 +274,35 @@ function JourneyTrail() {
     };
     measure();
     const observer=new ResizeObserver(measure);observer.observe(section);observer.observe(section.querySelector('.about-body'));
+    const settled = e => { if (e.target.matches('.about-personal-film')) measure(); };
+    section.addEventListener('transitionend', settled);
     let alive=true;document.fonts.ready.then(()=>{if(alive)measure();});
-    return ()=>{alive=false;observer.disconnect();};
+    return ()=>{alive=false;observer.disconnect();section.removeEventListener('transitionend',settled);};
   }, []);
+  const route = geometry && <><path className="journey-line" d={geometry.d} />{geometry.points.map(p=><g className={`journey-symbol journey-${p.type}`} key={p.type} transform={`translate(${p.x} ${p.y})`}><circle r={geometry.width<=1000?17:23} fill="var(--paper)" /><svg x={geometry.width<=1000?-12:-15} y={geometry.width<=1000?-12:-15} width={geometry.width<=1000?24:30} height={geometry.width<=1000?24:30} viewBox="0 0 30 30"><TrailIcon type={p.type} /></svg></g>)}</>;
   return <div ref={ref} className="about-trail" aria-hidden="true">{geometry && <svg className="trail-route" viewBox={`0 0 ${geometry.width} ${geometry.height}`}>
-    <defs><mask id="journey-content-mask" maskUnits="userSpaceOnUse"><rect width={geometry.width} height={geometry.height} fill="white" />{geometry.exclusions.map((r,i)=><rect key={i} x={r.x-8} y={r.y-8} width={r.w+16} height={r.h+16} fill="black" />)}</mask></defs>
-    <g mask="url(#journey-content-mask)"><path className="journey-line" d={geometry.d} />{geometry.points.map(p=><g className={`journey-symbol journey-${p.type}`} key={p.type} transform={`translate(${p.x} ${p.y})`}><circle r={geometry.width<=1000?17:23} fill="var(--paper)" /><svg x={geometry.width<=1000?-12:-15} y={geometry.width<=1000?-12:-15} width={geometry.width<=1000?24:30} height={geometry.width<=1000?24:30} viewBox="0 0 30 30"><TrailIcon type={p.type} /></svg></g>)}</g>
+    <defs>
+      <mask id="journey-content-mask" maskUnits="userSpaceOnUse"><rect width={geometry.width} height={geometry.height} fill="white" />{geometry.exclusions.map((r,i)=><rect key={i} x={r.x-8} y={r.y-8} width={r.w+16} height={r.h+16} fill="black" />)}</mask>
+      <mask id="journey-progress-mask" maskUnits="userSpaceOnUse" x="0" y="0" width={geometry.width} height={geometry.height}><path className="journey-reveal" d={geometry.d} pathLength="1" fill="none" stroke="white" strokeWidth="76" strokeLinecap="round" /></mask>
+    </defs>
+    <g mask="url(#journey-content-mask)"><g className="journey-base">{route}</g><g className="journey-progress" mask="url(#journey-progress-mask)">{route}</g></g>
   </svg>}</div>;
+
 }
 
 function About() {
   const personalVideoRef = useRef(null);
+  const polaroidRef = useRef(null);
+  const [straight, setStraight] = useState(false);
+  const [previewPaused, setPreviewPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches || !!navigator.connection?.saveData);
+  const [previewMotionAllowed, setPreviewMotionAllowed] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setStraight(true); observer.disconnect(); } }, { threshold: .35 });
+    observer.observe(polaroidRef.current);
+    return () => observer.disconnect();
+  }, []);
   const [personalVideoStarted, setPersonalVideoStarted] = useState(false);
-  return <section className="about section-pad" id="sobre" aria-labelledby="about-title"><JourneyTrail /><div className="about-heading"><h2 id="about-title">Por trás da câmera,<br />alguém que <em className="about-listen">escuta.</em></h2><span className="signature">Miguel Greco</span><figure className="about-personal-film"><div className="polaroid-media"><video ref={personalVideoRef} poster="/assets/personal-video-poster.jpg" controls={personalVideoStarted} onPlay={() => setPersonalVideoStarted(true)} playsInline preload="metadata" width="576" height="1024" aria-label="Registros pessoais de Miguel Greco" src="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4"><p>Seu navegador não reproduziu o vídeo. <a href="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4">Abrir o vídeo pessoal de Miguel</a>.</p></video>{!personalVideoStarted && <button className="personal-video-play" type="button" aria-label="Reproduzir vídeo pessoal de Miguel" onClick={() => personalVideoRef.current?.play().catch(() => {})}><Icon name="play" /></button>}</div><figcaption>Além da ilha de edição.</figcaption></figure></div><div className="about-body"><p className="about-lead">Sou filmmaker e editor. Encontro na imagem uma forma de contar histórias — e na música, o ritmo para dar vida a elas.</p><p>Há mais de três anos no audiovisual, trabalho com captação e pós-produção em projetos para marcas, eventos e casamentos. A experiência na agência Retriz faz parte desse percurso, construído com diferentes equipes, lugares e maneiras de criar.</p><p>Da câmera à montagem, procuro o detalhe que dá sentido ao conjunto. Fora da edição, o violão, as viagens e a natureza continuam alimentando esse olhar.</p><div className="disciplines"><span>Captação</span><span>Edição & montagem</span><span>Sound design</span><span>Motion graphics</span></div><a className="text-link" href="#contato">Vamos criar a próxima história</a></div></section>;
+  return <section className="about section-pad" id="sobre" aria-labelledby="about-title"><JourneyTrail /><div className="about-heading"><h2 id="about-title">Por trás da câmera,<br />alguém que <em className="about-listen">escuta.</em></h2><span className="signature">Miguel Greco</span><figure ref={polaroidRef} className={`about-personal-film ${straight ? 'is-in-view' : ''}`}><div className="polaroid-media"><video ref={personalVideoRef} poster="/assets/personal-video-poster.jpg" controls={personalVideoStarted} onPlay={() => setPersonalVideoStarted(true)} playsInline preload="metadata" width="576" height="1024" aria-label="Registros pessoais de Miguel Greco" src="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4"><p>Seu navegador não reproduziu o vídeo. <a href="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4">Abrir o vídeo pessoal de Miguel</a>.</p></video>{!personalVideoStarted && <><SilentPreview src="/assets/previews/miguel-pessoal.mp4" active paused={previewPaused} allowMotion={previewMotionAllowed} /><button className="polaroid-preview-toggle" type="button" aria-label={previewPaused ? 'Reproduzir prévia da Polaroid' : 'Pausar prévia da Polaroid'} onClick={() => { setPreviewPaused(!previewPaused); setPreviewMotionAllowed(true); }}><Icon name={previewPaused ? 'play' : 'pause'} /></button><button className="personal-video-play" type="button" aria-label="Reproduzir vídeo pessoal de Miguel" onClick={() => personalVideoRef.current?.play().catch(() => {})}><Icon name="play" /></button></>}</div><figcaption>Além da ilha de edição.</figcaption></figure></div><div className="about-body"><p className="about-lead">Sou filmmaker e editor. Encontro na imagem uma forma de contar histórias — e na música, o ritmo para dar vida a elas.</p><p>Há mais de três anos no audiovisual, trabalho com captação e pós-produção em projetos para marcas, eventos e casamentos. A experiência na agência Retriz faz parte desse percurso, construído com diferentes equipes, lugares e maneiras de criar.</p><p>Da câmera à montagem, procuro o detalhe que dá sentido ao conjunto. Fora da edição, o violão, as viagens e a natureza continuam alimentando esse olhar.</p><div className="disciplines"><span>Captação</span><span>Edição & montagem</span><span>Sound design</span><span>Motion graphics</span></div><a className="text-link" href="#contato">Vamos criar a próxima história</a></div></section>;
 }
 
 function Contact() {
