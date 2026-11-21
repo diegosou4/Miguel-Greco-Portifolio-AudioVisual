@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T13:49:28.126078+00:00",
+  "title": "Design System: Miguel Greco",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Chartreuse",
+        "tonalRamp": [
+          "oklch(15% 0.17 118)",
+          "oklch(26% 0.17 118)",
+          "oklch(38% 0.17 118)",
+          "oklch(49% 0.17 118)",
+          "oklch(61% 0.17 118)",
+          "oklch(72% 0.17 118)",
+          "oklch(84% 0.17 118)",
+          "oklch(95% 0.17 118)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Charcoal",
+        "tonalRamp": [
+          "oklch(15% 0.005 145)",
+          "oklch(26% 0.005 145)",
+          "oklch(38% 0.005 145)",
+          "oklch(49% 0.005 145)",
+          "oklch(61% 0.005 145)",
+          "oklch(72% 0.005 145)",
+          "oklch(84% 0.005 145)",
+          "oklch(95% 0.005 145)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "tonalRamp": [
+          "oklch(15% 0.006 95)",
+          "oklch(26% 0.006 95)",
+          "oklch(38% 0.006 95)",
+          "oklch(49% 0.006 95)",
+          "oklch(61% 0.006 95)",
+          "oklch(72% 0.006 95)",
+          "oklch(84% 0.006 95)",
+          "oklch(95% 0.006 95)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Quiet Ink",
+        "tonalRamp": [
+          "oklch(15% 0.009 110)",
+          "oklch(26% 0.009 110)",
+          "oklch(38% 0.009 110)",
+          "oklch(49% 0.009 110)",
+          "oklch(61% 0.009 110)",
+          "oklch(72% 0.009 110)",
+          "oklch(84% 0.009 110)",
+          "oklch(95% 0.009 110)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Paper Rule",
+        "tonalRamp": [
+          "oklch(15% 0.009 105)",
+          "oklch(26% 0.009 105)",
+          "oklch(38% 0.009 105)",
+          "oklch(49% 0.009 105)",
+          "oklch(61% 0.009 105)",
+          "oklch(72% 0.009 105)",
+          "oklch(84% 0.009 105)",
+          "oklch(95% 0.009 105)"
+        ]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Soft Paper",
+        "tonalRamp": [
+          "oklch(15% 0.009 105)",
+          "oklch(26% 0.009 105)",
+          "oklch(38% 0.009 105)",
+          "oklch(49% 0.009 105)",
+          "oklch(61% 0.009 105)",
+          "oklch(72% 0.009 105)",
+          "oklch(84% 0.009 105)",
+          "oklch(95% 0.009 105)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Opening cinematic headline; responsive overrides are documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section introductions."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading paragraphs."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Primary compact labels and navigation."
+      }
+    },
+    "shadows": [
+      {
+        "name": "mobile-navigation",
+        "value": "0 16px 26px #0003",
+        "purpose": "Temporary mobile menu separation."
+      },
+      {
+        "name": "image-caption-text",
+        "value": "0 1px 6px #000",
+        "purpose": "Text-shadow for category captions over source images."
+      }
+    ],
+    "motion": [
+      {
+        "name": "image-hover-duration",
+        "value": ".7s",
+        "purpose": "Project image scale to 1.035 on hover and keyboard focus."
+      },
+      {
+        "name": "image-hover-ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Project image transition easing."
+      },
+      {
+        "name": "control-transition",
+        "value": ".2s",
+        "purpose": "Filter and outline-button state transitions."
+      },
+      {
+        "name": "play-transition",
+        "value": ".25s",
+        "purpose": "Circular play state transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-max",
+        "value": "1000px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "700px"
+      },
+      {
+        "name": "wide-min",
+        "value": "1600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Contact pill",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Compact primary contact action.",
+      "html": "<button class=\"ds-contact\">Vamos conversar</button>",
+      "css": ".ds-contact{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:var(--accent,#d5f875);color:var(--ink,#171917);border:0;border-radius:100px;padding:13px 22px;min-height:46px;font-weight:700}.ds-contact:hover{background:#e2ffa0}.ds-contact:focus-visible{outline:2px solid #749b2b;outline-offset:6px}"
+    },
+    {
+      "name": "Outline action",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary archive or briefing action.",
+      "html": "<button class=\"ds-outline\">Explorar todos os projetos</button>",
+      "css": ".ds-outline{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:var(--ink,#171917);border:1px solid currentColor;border-radius:100px;padding:13px 25px;min-height:48px;transition:background .2s,color .2s}.ds-outline:hover{background:var(--ink,#171917);color:var(--paper,#f3f2ee)}.ds-outline:focus-visible{outline:2px solid #749b2b;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none}}"
+    },
+    {
+      "name": "Project filter",
+      "kind": "chip",
+      "refersTo": "filter",
+      "description": "A wrapping category action; pressed state identifies selection.",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"true\">Todos os filmes</button>",
+      "css": ".ds-filter{font-family:Manrope,Arial,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:var(--ink,#171917);border:0;border-radius:100px;padding:11px 17px;min-height:44px;transition:background .2s}.ds-filter:hover{background:#e3e4dc}.ds-filter[aria-pressed=true]{background:var(--ink,#171917);color:var(--paper,#f3f2ee)}.ds-filter:focus-visible{outline:2px solid #749b2b;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-filter{transition:none}}"
+    },
+    {
+      "name": "Briefing field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Labeled transparent field on a chartreuse surface.",
+      "html": "<div class=\"ds-field-surface\"><label class=\"ds-label\">Seu nome<input class=\"ds-field\" autocomplete=\"name\" placeholder=\"Como posso te chamar?\" required /></label></div>",
+      "css": ".ds-field-surface{background:var(--accent,#d5f875);color:var(--ink,#171917);padding:24px}.ds-label{display:block;font:14px Manrope,Arial,sans-serif}.ds-field{display:block;width:100%;margin-top:10px;padding:15px 0;background:transparent;color:var(--ink,#171917);border:0;border-bottom:1px solid #17191770;border-radius:0;min-height:48px;font:16px Manrope,Arial,sans-serif}.ds-field::placeholder{color:#445425;opacity:1}.ds-field:focus-visible{outline:2px solid var(--ink,#171917);outline-offset:6px}"
+    },
+    {
+      "name": "Navigation links",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Quiet desktop links on charcoal.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação principal\"><a href=\"#trabalhos\">Trabalhos</a><a href=\"#sobre\">Sobre</a></nav>",
+      "css": ".ds-nav{display:flex;gap:34px;background:var(--ink,#171917);color:var(--paper,#f3f2ee);padding:20px;font:14px Manrope,Arial,sans-serif}.ds-nav a{display:flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}.ds-nav a:hover{color:var(--accent,#d5f875)}.ds-nav a:focus-visible{outline:2px solid #749b2b;outline-offset:6px}"
+    },
+    {
+      "name": "Play affordance",
+      "kind": "button",
+      "refersTo": "play-control",
+      "description": "Circular control paired with a visible film action.",
+      "html": "<button class=\"ds-reel\"><span class=\"ds-play\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m9 5 11 7-11 7V5Z\" fill=\"currentColor\"/></svg></span>Entre em cena</button>",
+      "css": ".ds-reel{display:inline-flex;align-items:center;gap:17px;background:var(--ink,#171917);color:white;border:0;padding:20px;font:15px Manrope,Arial,sans-serif;cursor:pointer}.ds-play{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border:1px solid #ffffff90;border-radius:50%;transition:background .25s,color .25s}.ds-reel:hover .ds-play{background:var(--accent,#d5f875);color:var(--ink,#171917);border-color:var(--accent,#d5f875)}.ds-reel:focus-visible{outline:2px solid #749b2b;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-play{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Cinematic Editorial",
+    "overview": "Large real films, expressive typography and quiet navigation establish a professional portfolio with the rhythm of a director's treatment. Images carry the atmosphere; the interface makes the work, contribution and next action clear.\n\nThe confirmed world combines charcoal, warm paper and chartreuse with asymmetric, unboxed media. Manrope supplies both confident titles and restrained reading text. Motion follows the film and visitor interaction, with an equally complete reduced-motion presentation. The home-page sequence is recorded in `.impeccable/surfaces/home.md`.",
+    "keyCharacteristics": [
+      "Real moving images as the visual lead.",
+      "Large, tightly tracked editorial headings.",
+      "Asymmetric media with captions outside the frame.",
+      "Flat surfaces, thin rules and selective chartreuse.",
+      "Visible controls, keyboard focus and reduced-motion support."
+    ],
+    "rules": [
+      {
+        "name": "The Film First Rule",
+        "body": "Let the source film supply its own color; use interface color to make structure and actions legible.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Create hierarchy through scale, weight, spacing and placement within Manrope.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do lead with real films and keep titles and participation readable beside the media.",
+      "Do use Manrope hierarchy, warm neutrals and chartreuse consistently.",
+      "Do preserve visible labels, focus states, mobile touch targets and reduced-motion behavior.",
+      "Do use thin rules and space to separate content."
+    ],
+    "donts": [
+      "Don't add raised card shells around the film grid.",
+      "Don't replace the opening film with a decorative placeholder or enable autoplay sound.",
+      "Don't treat small secondary credits as the default size for primary labels.",
+      "Don't assume a variable font axis exists in the supplied static assets."
+    ]
+  }
+}
