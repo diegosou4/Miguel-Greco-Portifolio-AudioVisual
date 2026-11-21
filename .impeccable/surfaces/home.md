@@ -18,4 +18,8 @@ Work titles, images, roles and links are grounded in the incumbent portfolio. Pr
 
 ## Delivery facts, not visual invariants
 
-Some source covers contain baked-in captions; cleaner source frames can replace them without changing the design system. No approved personal portrait is available. These are asset conditions, not a mandate to use captioned covers or avoid portraits. Google Drive hosts source films. This delivery has no publishing CMS backend. These integration facts belong to this surface and product scope, not reusable visual rules.
+Some source covers contain baked-in captions; cleaner source frames can replace them without changing the design system. Miguel’s original guitar and airplane photographs now accompany the biography in two staggered figures, connecting the existing music and travel story to personal images. The pair sits under Miguel’s name in the left heading column beside biography text on desktop; on mobile it precedes the biography in the stacked reading flow. Source-cover conditions are not a mandate to use captioned covers. Google Drive hosts source films. This delivery has no publishing CMS backend. These integration facts belong to this surface and product scope, not reusable visual rules.
+
+## Mobile contact extension
+
+The header and mobile menu expose WhatsApp directly. A floating contact shortcut follows the implemented visibility rule: it appears when no more than 15% of the hero intersects the viewport, and hides while contact, footer or a film player is visible. Small screens use a 56px icon-only circle with an accessible name and safe-area clearance. Main contact and prepared-message actions retain visible text beside the brand SVG. Landscape layout protects header and film text from device insets.

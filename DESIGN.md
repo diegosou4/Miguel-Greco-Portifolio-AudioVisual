@@ -74,6 +74,17 @@ components:
   navigation:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
+  whatsapp-shortcut:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.accent}"
+    rounded: "{rounded.pill}"
+    padding: "14px 20px"
+  whatsapp-shortcut-mobile:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.accent}"
+    rounded: "{rounded.circle}"
+    width: "56px"
+    height: "56px"
   play-control:
     rounded: "{rounded.circle}"
     width: "64px"
@@ -137,11 +148,11 @@ The common outer gutter is fluid, as specified in frontmatter. Above 1600px, hor
 
 Media compositions use a twelve-column desktop grid with unequal spans, open columns and staggered starts. The project grid has 32px horizontal and 65px vertical gaps, then 25px and 55px below 1000px. Below 700px projects become a sequential reading flow; alternating 15% side offsets retain asymmetry. Reading sections use two columns with generous gaps, collapsing to one on mobile. Forms also collapse their paired fields into one column.
 
-Breakpoints are based on the actual layout: 1000px for compression, 700px for mobile structure and 1600px for the wide-screen content bound. Header height changes from 102px to 90px to 82px, and the opening media accounts for that height. Do not hide primary work or contact paths at smaller sizes.
+Breakpoints are based on the actual layout: 1000px for compression, 700px for mobile structure and 1600px for the wide-screen content bound. Header height changes from 102px to 90px to 82px, and the opening media accounts for that height. Do not hide primary work or contact paths at smaller sizes. The viewport enables `viewport-fit=cover`; mobile header padding, hero bottom padding and floating contact clearance account for safe-area insets. In landscape viewports at most 500px tall, the header becomes 76px, the film retains a 500px minimum height and header/hero horizontal padding uses the greater of 24px or the corresponding safe-area inset.
 
 ## Elevation & Depth
 
-The system is flat at rest. Tonal section changes, thin rules, image crops and spacious separation establish hierarchy. Media overlays protect text legibility without turning projects into raised cards. A mobile navigation shadow (`0 16px 26px #0003`) separates its temporary panel from the film; it is not a general card shadow. Image-category captions use a local text shadow for legibility.
+The system is flat at rest. Tonal section changes, thin rules, image crops and spacious separation establish hierarchy. Media overlays protect text legibility without turning projects into raised cards. A mobile navigation shadow (`0 16px 26px #0003`) separates its temporary panel from the film; it is not a general card shadow. The floating contact shortcut uses `0 8px 24px #0003` to separate an actionable overlay from films and reading surfaces. Image-category captions use a local text shadow for legibility.
 
 ## Shapes
 
@@ -169,7 +180,19 @@ Transparent, square fields are drawn with a bottom border on the chartreuse cont
 
 ### Navigation
 
-A charcoal header holds the Manrope wordmark, quiet role text, short links and contact pill. Desktop links use 14px type and at least 44px height; hover introduces chartreuse. Below 700px a 44px circular toggle reveals a full-width charcoal panel under the header, with 25px links and 62px row heights. The toggle exposes expanded state; Escape closes the menu and returns focus. The skip link becomes visible on keyboard focus.
+A charcoal header holds the Manrope wordmark, quiet role text, short links and contact pill. Desktop links use 14px type and at least 44px height; hover introduces chartreuse. Below 700px a 44px circular toggle reveals a full-width charcoal panel under the header, with 25px links and 62px row heights. The toggle exposes expanded state; Escape closes the menu and returns focus. On mobile, the role text yields space to a 44px circular WhatsApp link with a 23px brand glyph; the glyph also appears beside the mobile-menu WhatsApp label. The skip link becomes visible on keyboard focus.
+
+### WhatsApp Contact
+
+Use the inline Simple Icons WhatsApp brand SVG (CC0) in the header shortcut, mobile menu, main contact action and prepared-message action. The icon inherits the current interface color; it does not introduce another brand-color token. Keep an accessible action name on icon-only links. Main and prepared-message actions retain their visible labels.
+
+The floating shortcut is a charcoal pill with chartreuse icon and label, a 56px minimum height and a 25px glyph. At 700px and below it becomes a 56px circular icon-only link, retaining its accessible name. Its bottom clearance adds the safe-area inset to 18px; right clearance uses the greater of 18px or the inset. Hover reverses to chartreuse with charcoal. It uses the shared visible focus outline.
+
+The shortcut appears when the opening film has at most 15% intersection with the viewport (or no opening film exists), and hides whenever the contact section, footer or film player intersects the viewport. This preserves access while avoiding competing contact actions and playback controls.
+
+### Personal Photo Pair
+
+Two unboxed figures extend the editorial image language into the biography. Their grid uses proportions 1 to 1.05, square corners and a 20px gap; the second figure is staggered downward by 68px. The guitar image uses a 4:5 crop and the travel image 4:3, both with cover fitting. Captions use muted Manrope at 13px with line height 1.5 and a 12px top gap. Below 700px, the figure gap is 16px, the stagger is 52px and captions are 12px. These caption sizes remain secondary typography, not primary-label defaults.
 
 ### Film Controls
 
