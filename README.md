@@ -4,11 +4,15 @@ A cinematic portfolio for filmmaker and editor Miguel Greco, built with React an
 
 The website content is in Brazilian Portuguese. This README documents the project in English.
 
+**Live site:** <https://lemu.re/p/Miguel.Greco.Visual/>
+
 ## Screenshots
 
 ### Desktop
 
 **Opening film**
+
+![Animated preview of the opening section](docs/screenshots/desktop-opening.gif)
 
 ![Desktop homepage with the opening film](docs/screenshots/desktop-home.jpg)
 
