@@ -234,6 +234,7 @@ export const projects = [
     "cover": "https://drive.google.com/file/d/1kFQoy4GxPIuhewUhw_4B39Uno9eFd0b5/view?usp=sharing",
     "videoUrl": "https://drive.google.com/drive/folders/1tbYN4KhcUR_j_XHYCRJ-nt3Qu8r3mgBJ?usp=sharing",
     "folderId": "1tbYN4KhcUR_j_XHYCRJ-nt3Qu8r3mgBJ",
+    "isFolder": true,
     "techDetails": "Telas Sequenciais em Vídeo • Pasta Completa",
     "slug": "narrativa-sequencial",
     "line": "Uma história, várias telas.",

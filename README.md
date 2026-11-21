@@ -30,7 +30,7 @@ Screenshots show actual browser renders. The opening video's frame changes durin
 ## Features
 
 - Muted opening video with play and pause controls and reduced-motion support.
-- A circular 3D carousel with drag, keyboard and button navigation, a curated selection and a complete archive of 13 projects.
+- A circular 3D carousel with drag, keyboard and button navigation, all 13 original projects available immediately.
 - Seven-second silent previews for 12 films and the personal Polaroid, with visible side-card playback and pause controls.
 - Category filters for brands and content, weddings, events, and personal work.
 - Individual film pages with participation credits, Google Drive playback, and original-file links.

@@ -113,7 +113,6 @@ function SilentPreview({ src, active, paused = false, allowMotion = false }) {
 }
 
 function Portfolio({ filter, setFilter }) {
-  const [expanded, setExpanded] = useState(false);
   const [previewsPaused, setPreviewsPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches || !!navigator.connection?.saveData);
   const [previewMotionAllowed, setPreviewMotionAllowed] = useState(false);
   const [active, setActive] = useState(0);
@@ -122,7 +121,7 @@ function Portfolio({ filter, setFilter }) {
   const gesture = useRef(null);
   const suppressClick = useRef(false);
   const wheelTime = useRef(0);
-  const list = filter === 'todos' ? expanded ? projects : [projects[0], projects[1], projects[3], projects[4], projects[2], projects[8]] : projects.filter(p => p.group === filter);
+  const list = filter === 'todos' ? projects : projects.filter(p => p.group === filter);
   const selection = list.map(p => p.id).join(',');
   const current = ((active % list.length) + list.length) % list.length;
   const selected = list[current];
@@ -180,7 +179,6 @@ function Portfolio({ filter, setFilter }) {
       <div className="orbit-details"><p>{selected.techDetails.split(' • ')[0]}</p><span>{selected.line}</span></div>
       <div className="carousel-bottom"><div className="carousel-controls"><button type="button" aria-label="Filme anterior" disabled={list.length < 2} onClick={() => turn(-1)}><Icon name="previous" /></button><span className="carousel-position" aria-live="polite" aria-atomic="true">{String(current + 1).padStart(2, '0')} <span>/ {String(list.length).padStart(2, '0')}</span></span><button type="button" aria-label="Próximo filme" disabled={list.length < 2} onClick={() => turn(1)}><Icon name="next" /></button></div><div className="carousel-hint"><p>Arraste para os lados e descubra.</p>{list.some(project => project.preview) && <button type="button" className="preview-toggle" aria-label={previewsPaused ? 'Reproduzir prévias dos filmes' : 'Pausar prévias dos filmes'} onClick={() => { setPreviewsPaused(!previewsPaused); setPreviewMotionAllowed(true); }}><Icon name={previewsPaused ? 'play' : 'pause'} /><span>{previewsPaused ? 'Reproduzir prévias' : 'Pausar prévias'}</span></button>}</div></div>
     </div>
-    {filter === 'todos' && <div className="archive-action"><p>{expanded ? 'Você está vendo o acervo completo.' : 'Há mais histórias por aqui.'}</p><button className="outline-button" type="button" aria-expanded={expanded} onClick={() => { setActive(0); setExpanded(!expanded); }}>{expanded ? 'Voltar à seleção' : 'Explorar todos os 13 projetos'}</button></div>}
   </section>;
 }
 
