@@ -32,7 +32,7 @@ Screenshots show actual browser renders. The opening video's frame changes durin
 - Muted opening video with play and pause controls and reduced-motion support.
 - A circular 3D carousel with drag, keyboard and button navigation, all 13 original projects available immediately.
 - Seven-second silent previews for 12 films and the personal Polaroid, with visible side-card playback and pause controls.
-- Category filters for brands and content, weddings, events, and personal work.
+- Filters matching the original portfolio: weddings, endomarketing, events, courses, mini documentaries, advertising films, AI videos, animated title cards and video carousels.
 - Individual film pages with participation credits, Google Drive playback, and original-file links.
 - A personal video presented as a Polaroid that straightens on entry. A silent preview plays in view; the main play button opens the complete video with sound and native controls. An airplane-photo poster remains beneath the preview.
 - A responsive dotted journey connecting the biography heading to the Polaroid, with travel and audiovisual symbols that progressively turn light purple while scrolling.
