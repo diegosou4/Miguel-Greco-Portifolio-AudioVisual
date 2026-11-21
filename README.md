@@ -14,7 +14,7 @@ The website content is in Brazilian Portuguese. This README documents the projec
 
 ![Animated preview of the opening section](docs/screenshots/desktop-opening.gif)
 
-![Desktop homepage with the opening film](docs/screenshots/desktop-home.jpg)
+
 
 **Circular film collection**
 
