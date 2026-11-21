@@ -18,7 +18,7 @@ Work titles, images, roles and links are grounded in the incumbent portfolio. Pr
 
 ## Delivery facts, not visual invariants
 
-Some source covers contain baked-in captions; cleaner source frames can replace them without changing the design system. Miguel’s original guitar and airplane photographs now accompany the biography in two staggered figures, connecting the existing music and travel story to personal images. The pair sits under Miguel’s name in the left heading column beside biography text on desktop; on mobile it precedes the biography in the stacked reading flow. Source-cover conditions are not a mandate to use captioned covers. Google Drive hosts source films. This delivery has no publishing CMS backend. These integration facts belong to this surface and product scope, not reusable visual rules.
+Some source covers contain baked-in captions; cleaner source frames can replace them without changing the design system. A user-supplied local 25-second portrait video (576 × 1024) accompanies the biography beneath Miguel’s name, captioned “Além da ilha de edição.” It replaces the former photo pair. The video sits in the left heading column beside biography text on desktop; on mobile it is centered before the biography. Native controls allow explicit playback and optional sound: it opens muted, does not autoplay and preloads metadata only. Source-cover conditions are not a mandate to use captioned covers. Google Drive hosts source films. This delivery has no publishing CMS backend. These integration facts belong to this surface and product scope, not reusable visual rules.
 
 ## Mobile contact extension
 

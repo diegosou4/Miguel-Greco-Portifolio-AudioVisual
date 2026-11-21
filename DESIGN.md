@@ -190,9 +190,9 @@ The floating shortcut is a charcoal pill with chartreuse icon and label, a 56px 
 
 The shortcut appears when the opening film has at most 15% intersection with the viewport (or no opening film exists), and hides whenever the contact section, footer or film player intersects the viewport. This preserves access while avoiding competing contact actions and playback controls.
 
-### Personal Photo Pair
+### Personal Film
 
-Two unboxed figures extend the editorial image language into the biography. Their grid uses proportions 1 to 1.05, square corners and a 20px gap; the second figure is staggered downward by 68px. The guitar image uses a 4:5 crop and the travel image 4:3, both with cover fitting. Captions use muted Manrope at 13px with line height 1.5 and a 12px top gap. Below 700px, the figure gap is 16px, the stagger is 52px and captions are 12px. These caption sizes remain secondary typography, not primary-label defaults.
+A single unboxed portrait video extends the editorial media language into the biography, beneath Miguel’s name. The figure is capped at 280px wide (260px and centered below 700px), with a 28px top margin. Its square-cornered 9:16 frame uses containment over charcoal. The native player has controls, inline playback and metadata-only preload; it opens muted and does not autoplay. Visitors may enable sound through the player. The caption “Além da ilha de edição.” uses muted Manrope at 13px, line height 1.5 and a 12px top gap. This secondary caption does not establish a primary-label size.
 
 ### Film Controls
 
