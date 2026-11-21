@@ -116,10 +116,33 @@ function Pathways({ choose }) {
   </section>;
 }
 
+function TrailIcon({ type }) {
+  const glyphs = {
+    plane: <path d="m17.8 8.6 2.1-2.1a2 2 0 0 0-2.8-2.8L15 5.8 8 3 6 5l5 4-4 4-4-1-1 1 5 3 3 5 1-1-1-4 4-4 4 5 2-2-2.2-6.4Z" />,
+    car: <><path d="m5 6 2-3h10l2 3 2 4v8h-3v-3H6v3H3v-8l2-4ZM3 10h18" /><circle cx="7.5" cy="12.5" r=".5" /><circle cx="16.5" cy="12.5" r=".5" /></>,
+    camera: <><path d="M3 7h4l2-3h6l2 3h4v13H3V7Z" /><circle cx="12" cy="13" r="4" /></>,
+    laptop: <><path d="M5 3h14v13H5V3ZM2 20h20l-3-4H5l-3 4Z" /><path d="m10 8-2 2 2 2m4-4 2 2-2 2" /></>,
+    rings: <><circle cx="8.5" cy="14" r="6" /><circle cx="15.5" cy="14" r="6" /><path d="m5 5 3-3 3 3m2 0 3-3 3 3" /></>,
+    clapper: <><path d="M3 10h18v11H3V10ZM3 10 1 5l18-4 2 5-18 4Z" /><path d="m6 4 3 4m3-6 3 4M3 14h18" /></>,
+    microphone: <><rect x="8" y="2" width="8" height="13" rx="4" /><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-4 0h8" /></>,
+    course: <><path d="m1 8 11-5 11 5-11 5L1 8Zm4 2v7c4 4 10 4 14 0v-7M23 8v9" /></>,
+    film: <><rect x="3" y="2" width="18" height="20" rx="1" /><path d="M7 2v20M17 2v20M3 7h4M3 12h4M3 17h4M17 7h4M17 12h4M17 17h4m-7-10-4 3 4 3V7Z" /></>,
+    motion: <><path d="M3 6h6M1 12h6M3 18h6M13 4l9 8-9 8V4Z" /></>,
+    boat: <><path d="M12 2v15M12 3 3 14h9m3-8 6 8h-6M2 18h20l-4 4H6l-4-4Z" /></>,
+    sun: <><circle cx="12" cy="12" r="4" /><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></>
+  };
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">{glyphs[type]}</svg>;
+}
+
+function JourneyTrail() {
+  const stops = [['plane',5,22],['car',21,14],['camera',37,32],['laptop',55,20],['rings',73,30],['clapper',92,18],['microphone',90,66],['course',72,80],['film',55,65],['motion',37,83],['boat',20,65],['sun',5,85]];
+  return <div className="about-trail" aria-hidden="true"><svg className="trail-route" viewBox="0 0 1000 330" preserveAspectRatio="none"><path d="M50 74C110 10 165 7 210 46S300 190 370 106S485 20 550 66S655 150 730 100S850 0 920 60C1020 100 1000 190 900 218S790 315 720 264S625 170 550 215S440 320 370 274S275 180 200 215S80 320 50 280" /></svg>{stops.map(([type,x,y])=><span className={`trail-stop trail-${type}`} key={type} style={{left:`${x}%`,top:`${y}%`}}><TrailIcon type={type} /></span>)}</div>;
+}
+
 function About() {
   const personalVideoRef = useRef(null);
   const [personalVideoStarted, setPersonalVideoStarted] = useState(false);
-  return <section className="about section-pad" id="sobre" aria-labelledby="about-title"><div className="about-heading"><h2 id="about-title">Por trás da câmera,<br />alguém que <em>escuta.</em></h2><span className="signature">Miguel Greco</span><figure className="about-personal-film"><div className="polaroid-media"><video ref={personalVideoRef} poster="/assets/personal-video-poster.jpg" controls={personalVideoStarted} onPlay={() => setPersonalVideoStarted(true)} playsInline preload="metadata" width="576" height="1024" aria-label="Registros pessoais de Miguel Greco" src="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4"><p>Seu navegador não reproduziu o vídeo. <a href="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4">Abrir o vídeo pessoal de Miguel</a>.</p></video>{!personalVideoStarted && <button className="personal-video-play" type="button" aria-label="Reproduzir vídeo pessoal de Miguel" onClick={() => personalVideoRef.current?.play().catch(() => {})}><Icon name="play" /></button>}</div><figcaption>Além da ilha de edição.</figcaption></figure></div><div className="about-body"><p className="about-lead">Sou filmmaker e editor. Encontro na imagem uma forma de contar histórias — e na música, o ritmo para dar vida a elas.</p><p>Há mais de três anos no audiovisual, trabalho com captação e pós-produção em projetos para marcas, eventos e casamentos. A experiência na agência Retriz faz parte desse percurso, construído com diferentes equipes, lugares e maneiras de criar.</p><p>Da câmera à montagem, procuro o detalhe que dá sentido ao conjunto. Fora da edição, o violão, as viagens e a natureza continuam alimentando esse olhar.</p><div className="disciplines"><span>Captação</span><span>Edição & montagem</span><span>Sound design</span><span>Motion graphics</span></div><a className="text-link" href="#contato">Vamos criar a próxima história</a></div></section>;
+  return <section className="about section-pad" id="sobre" aria-labelledby="about-title"><div className="about-heading"><h2 id="about-title">Por trás da câmera,<br />alguém que <em>escuta.</em></h2><span className="signature">Miguel Greco</span><figure className="about-personal-film"><div className="polaroid-media"><video ref={personalVideoRef} poster="/assets/personal-video-poster.jpg" controls={personalVideoStarted} onPlay={() => setPersonalVideoStarted(true)} playsInline preload="metadata" width="576" height="1024" aria-label="Registros pessoais de Miguel Greco" src="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4"><p>Seu navegador não reproduziu o vídeo. <a href="/assets/WhatsApp%20Video%202026-11-21%20at%2014.05.14.mp4">Abrir o vídeo pessoal de Miguel</a>.</p></video>{!personalVideoStarted && <button className="personal-video-play" type="button" aria-label="Reproduzir vídeo pessoal de Miguel" onClick={() => personalVideoRef.current?.play().catch(() => {})}><Icon name="play" /></button>}</div><figcaption>Além da ilha de edição.</figcaption></figure></div><div className="about-body"><p className="about-lead">Sou filmmaker e editor. Encontro na imagem uma forma de contar histórias — e na música, o ritmo para dar vida a elas.</p><p>Há mais de três anos no audiovisual, trabalho com captação e pós-produção em projetos para marcas, eventos e casamentos. A experiência na agência Retriz faz parte desse percurso, construído com diferentes equipes, lugares e maneiras de criar.</p><p>Da câmera à montagem, procuro o detalhe que dá sentido ao conjunto. Fora da edição, o violão, as viagens e a natureza continuam alimentando esse olhar.</p><div className="disciplines"><span>Captação</span><span>Edição & montagem</span><span>Sound design</span><span>Motion graphics</span></div><a className="text-link" href="#contato">Vamos criar a próxima história</a><JourneyTrail /></div></section>;
 }
 
 function Contact() {

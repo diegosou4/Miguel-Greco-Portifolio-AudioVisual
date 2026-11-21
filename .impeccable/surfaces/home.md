@@ -23,3 +23,7 @@ Some source covers contain baked-in captions; cleaner source frames can replace 
 ## Mobile contact extension
 
 The header and mobile menu expose WhatsApp directly. A floating contact shortcut follows the implemented visibility rule: it appears when no more than 15% of the hero intersects the viewport, and hides while contact, footer or a film player is visible. Small screens use a 56px icon-only circle with an accessible name and safe-area clearance. Main contact and prepared-message actions retain visible text beside the brand SVG. Landscape layout protects header and film text from device insets.
+
+## Biography journey detail
+
+Below the biography contact link, a quiet static dotted route connects twelve SVG icons: plane, car, camera, laptop, wedding rings, clapper, microphone, course cap, filmstrip, motion, boat and sun. Charcoal at 0.24 opacity over paper keeps the decoration subordinate to the story. Dedicated space beneath the text avoids overlap; the route adapts from 270px desktop height to 240px tablet and 220px mobile. It is decorative, hidden from assistive technology and does not intercept pointer interaction.

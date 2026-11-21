@@ -196,6 +196,10 @@ A portrait video beneath Miguel’s name uses a small Polaroid treatment: a whit
 
 The 9:16 native video uses cover fitting over charcoal. The travel photograph supplies the initial poster, avoiding a blank opening frame; the vertical source shares the frame’s aspect ratio. A centered 64px paper-colored play button with charcoal icon and a local shadow (`0 4px 16px #17191730`) starts playback; hover introduces chartreuse. After playback starts, native controls replace the overlay. The player uses inline playback and metadata-only preload. It does not autoplay, so the site opens silently; explicit playback retains audio and native volume control. The centered caption “Além da ilha de edição.” uses muted Manrope at 13px, line height 1.5 and an 18px top gap. This secondary caption does not establish a primary-label size.
 
+### Biography Journey Trail
+
+A static decorative trail sits below the biography contact link, within the paper reading column. A rounded dotted SVG path connects twelve small outline icons for travel, filmmaking, editing and personal interests. The local treatment uses existing charcoal at 0.24 opacity, with paper behind the icons; it adds no palette role. The route has a non-scaling 1.2px stroke and dash pattern `1 7` (`1 6` below 700px); glyph strokes are 1.3px. The trail is 270px tall with 48px icon containers, reducing to 240px/40px below 1000px and 220px/36px below 700px. It stays separate from text, is hidden from assistive technology and ignores pointer events. This biography decoration is a surface-specific expression, not a required motif for every page.
+
 ### Film Controls
 
 Outlined circular play affordances pair an icon with a visible text action. Hover introduces chartreuse and charcoal. Opening background video stays muted, exposes play/pause, pauses when hidden or outside the viewport, and respects user pause. Reduced motion disables automatic background playback, scroll framing and transitions; manual playback remains available. Film detail playback starts from an explicitly activated poster with clear original-file fallback.
